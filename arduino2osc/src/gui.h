@@ -196,14 +196,12 @@ class SensorDialog: public GUImodule{
       input->setAutoClear(false); 
             
       rslider = new ofxUIRangeSlider(width*0.45f,10, 0.0, 1023.0, 0.0, 1034.0, "RANGE"+ofToString(i));
-      //rslider->setLabelVisible(false);
       rslider->setPadding(0);
             
       ofPtr<ofxUIRangeSlider> shrrslider(rslider,null_deleter());
       addRangeSlider( shrrslider );
             
       slider = new ofxUISlider(width*0.45f,10, 0.0, 1023.0, 0.0, "SLIDER"+ofToString(i));
-      //slider->setLabelVisible(false);
       slider->setPadding(0);
             
       ofPtr<ofxUISlider> shrslider(slider,null_deleter());
@@ -236,8 +234,6 @@ class Presets: public GUImodule{
     canvas->addWidgetDown(new ofxUIButton(30,30,30,10,false,"guardar"));
     canvas->addWidgetRight( new ofxUITextInput(width/2, "nombre", "preset", OFX_UI_FONT_SMALL ));
 
-        
-    //canvas->addWidgetDown(new ofxUILabel("H SLIDERS", OFX_UI_FONT_MEDIUM));
     ofxUIToggleMatrix * matrix;
     canvas->addWidgetDown(new ofxUISpacer(width, 2));             
     canvas->addWidgetDown(new ofxUILabel("presets", OFX_UI_FONT_MEDIUM)); 				
@@ -279,13 +275,9 @@ class GUImode{
     else
       return ofPtr<GUImodule>();
   }
-
  protected:
   vector< ofPtr<GUImodule> > modules;
-
 };
-
-
 
 
 class GUI{
@@ -296,5 +288,6 @@ class GUI{
   void addMode(ofPtr<GUImode> _mode ) {
     modes.push_back(_mode);
   }
+ private:
   vector< ofPtr<GUImode> > modes;
 };

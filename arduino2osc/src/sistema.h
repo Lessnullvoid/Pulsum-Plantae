@@ -235,7 +235,6 @@ class InputGroup{
 
   void addInputs(int _no, string _type, string _prefix){
     for (int i=0; i<_no; i++)
-      //inputs.push_back(make_shared<Input>(_prefix+ofToString(i),_type));
       inputs.push_back(ofPtr<Input>(new Input(_prefix+ofToString(i),_type)));
   }
 
@@ -294,7 +293,7 @@ class InputManager{
  public:
   InputManager(){
     for (int i=0; i<ANALOG_INPUTS; i++) {
-      ofPtr<Input > input = ofPtr<Input>(new Input("analog"+ofToString(i), "float"));//make_shared<Input >("analog"+ofToString(i), "float");
+      ofPtr<Input > input = ofPtr<Input>(new Input("analog"+ofToString(i), "float"));
       inputs.push_back( input );
     }
   }
