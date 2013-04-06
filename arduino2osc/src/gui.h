@@ -17,7 +17,7 @@ class GUImodule{
             canvas = ofPtr<ofxUICanvas>(new ofxUICanvas(_x, _y, _w, _h));//make_shared<ofxUICanvas>(_x, _y, _w, _h);
             canvas->setDrawBack(false); 
         
-            canvas->setFont("franklinGothic.otf");                     
+            canvas->setFont("verdana.ttf");                     
             canvas->setFontSize(OFX_UI_FONT_LARGE, 7);            
             canvas->setFontSize(OFX_UI_FONT_MEDIUM, 6);           
             canvas->setFontSize(OFX_UI_FONT_SMALL, 5);            
@@ -177,7 +177,7 @@ class SensorDialog: public GUImodule{
         canvasL = ofPtr<ofxUICanvas>(new ofxUICanvas(x, y+60, width/2, height-20));//make_shared<ofxUICanvas>(x, y+60, width/2, height-20);
         canvasL->setDrawBack(false); 
         
-        canvasL->setFont("franklinGothic.otf");                     
+        canvasL->setFont("verdana.ttf");                     
         canvasL->setFontSize(OFX_UI_FONT_LARGE, 7);            
         canvasL->setFontSize(OFX_UI_FONT_MEDIUM, 6);           
         canvasL->setFontSize(OFX_UI_FONT_SMALL, 5);     
@@ -186,7 +186,7 @@ class SensorDialog: public GUImodule{
         canvasR = ofPtr<ofxUICanvas>(new ofxUICanvas(x+width/2, y+60, width/2, height-20));//make_shared<ofxUICanvas>(x+width/2, y+60, width/2, height-20);
         canvasR->setDrawBack(false); 
         
-        canvasR->setFont("franklinGothic.otf");                     
+        canvasR->setFont("verdana.ttf");                     
         canvasR->setFontSize(OFX_UI_FONT_LARGE, 7);            
         canvasR->setFontSize(OFX_UI_FONT_MEDIUM, 6);           
         canvasR->setFontSize(OFX_UI_FONT_SMALL, 5);     

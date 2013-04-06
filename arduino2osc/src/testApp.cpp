@@ -10,7 +10,7 @@ void testApp::setup(){
 
 	ofBackground(125,125,125);
 
-	font.loadFont("franklinGothic.otf", 20);
+	font.loadFont("verdana.ttf", 20);
 }
 
 //--------------------------------------------------------------
