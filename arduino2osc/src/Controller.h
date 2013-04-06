@@ -208,7 +208,7 @@ class Controller{
             string str;
 
             string name = e.widget->getName(); 
-            int kind = e.widget->getKind(); 
+            //int kind = e.widget->getKind(); 
             cout << "got event from: " << name << endl; 
             
         if(name == "guardar")

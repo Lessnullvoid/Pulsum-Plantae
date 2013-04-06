@@ -219,11 +219,20 @@ class Input{
             else floatValue = _float;
 
             //floatValue = ofMap(floatValue,min,max,min,max);
-            
+	    return floatValue;
         }    
-        float setBoolValue(bool _bool)      {   boolValue = _bool;      }
-        float setIntValue(int _int)         {   intValue = _int;        }
-        float setCharValue(char _char)      {   charValue = _char; }
+        float setBoolValue(bool _bool)      {
+	  boolValue = _bool;
+	  return boolValue;
+	}
+        float setIntValue(int _int)         {
+	  intValue = _int;
+	  return intValue;
+	}
+        float setCharValue(char _char)      {
+	  charValue = _char;
+	  return charValue;
+	}
 
         float getFloatValue()   {   
             //cout<<floatValue<<endl;
@@ -371,16 +380,15 @@ class InputManager{
         }
 
         ofPtr< Input > getInput(int _i) {
-            if(inputs.size())
+            if(_i < inputs.size())
                 return inputs[_i];
+	    else
+	      return ofPtr<Input>();
         }
 
 
         int getInputNum() {
-            if(inputs.size())
-                return (int) inputs.size();
-            else
-                return 0;
+	  return inputs.size();
         }
 
         void setCurrentModule( ofPtr<Module> _module ) {
@@ -505,18 +513,18 @@ public:
     
     
     string getAddress( int _i ) {
-        if(currentBank<presets.size())
-            if(currentPreset<presets[currentBank].size())
-                if(_i<presets[currentBank][currentPreset].size())
-                    return presets[currentBank][currentPreset][_i];
+      if((currentBank<presets.size()) && (currentPreset<presets[currentBank].size()) && (_i<presets[currentBank][currentPreset].size()))
+	return presets[currentBank][currentPreset][_i];
+      else
+	return "";
     }
 
     
     string getAddress( int _bank, int _preset, int _i ) {
-        if(_bank<presets.size())
-            if(_preset<presets[_bank].size())
-                if(_i<presets[_bank][_preset].size())
-                    return presets[_bank][_preset][_i];
+      if((_bank<presets.size()) && (_preset<presets[_bank].size()) && (_i<presets[_bank][_preset].size()))
+	return presets[_bank][_preset][_i];
+      else
+	return "";
     }
     
     vector< ofPtr< Input  > > inputs;

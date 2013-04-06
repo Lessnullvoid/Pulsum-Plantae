@@ -68,52 +68,66 @@ class GUImodule{
         }
     
         ofPtr<ofxUISlider> getSlider( int _i ) {
-            if(sliders.size())
+            if(_i < sliders.size())
                 return sliders[_i];
 	    else
 	      return ofPtr<ofxUISlider>();
         }
 
         ofPtr<ofxUIRangeSlider> getRangeSlider( int _i ) {
-            if(rangeSliders.size())
+            if(_i < rangeSliders.size())
                 return rangeSliders[_i];
+	    else
+	      return ofPtr<ofxUIRangeSlider>();
         }
 
         ofPtr<ofxUILabelToggle> getLabelToggle( int _i ) {
-            if(labelToggles.size())
+            if(_i < labelToggles.size())
                 return labelToggles[_i];
+	    else
+	      return ofPtr<ofxUILabelToggle>();
         }
     
         ofPtr<ofxUIDropDownList> getDropDown( int _i ) {
-            if(dropdowns.size())
+            if(_i < dropdowns.size())
                 return dropdowns[_i];
+	    else
+	      return ofPtr<ofxUIDropDownList>();
+	      
         }
     
         ofPtr<ofxUIButton> getButton( int _i ) {
-            if(buttons.size())
+            if(_i < buttons.size())
                 return buttons[_i];
+	    else
+	      return ofPtr<ofxUIButton>();
         }
     
         ofPtr<ofxUITextInput> getTextInput( int _i ) {
-            if(textInputs.size())
+            if(_i < textInputs.size())
                 return textInputs[_i];
+	    else
+	      return ofPtr<ofxUITextInput>();
         }
 
         ofPtr<ofxUIToggleMatrix> getMatrix( int _i ) {
-            if(matrix.size())
+            if(_i < matrix.size())
                 return matrix[_i];
+	    else
+	      return ofPtr<ofxUIToggleMatrix>();
         }
     
     
         int getCanvasNum( ) {
-            if(canvasArray.size() )
-                return canvasArray.size();
+	  //if(canvasArray.size() )
+	  return canvasArray.size();
         }
     
         ofPtr<ofxUICanvas> getCanvas( int _i ) {
-            if(canvasArray.size())
-                if(_i<canvasArray.size())
-                    return canvasArray[_i];
+	  if(_i < canvasArray.size())
+	    return canvasArray[_i];
+	  else
+	    return ofPtr<ofxUICanvas>();
         }
 
 
@@ -519,8 +533,10 @@ class GUImode{
         }
     
         ofPtr<GUImodule> getModule( int _i ) {
-            if(modules.size())
+            if(_i < modules.size())
                 return modules[_i];
+	    else
+	      return ofPtr<GUImodule>();
         }
 
     protected:
