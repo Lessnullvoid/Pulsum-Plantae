@@ -153,7 +153,6 @@
 		AF06C36D1710259C00CC0018 /* arduino2oscDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = arduino2oscDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
 		DD7466D515744E6600074979 /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
-		DD7466D615744E6600074979 /* Funcs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Funcs.h; sourceTree = "<group>"; };
 		DD7466D715744E6600074979 /* gui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui.h; sourceTree = "<group>"; };
 		DD7466D815744E6600074979 /* sistema.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sistema.h; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
@@ -453,7 +452,6 @@
 			isa = PBXGroup;
 			children = (
 				DD7466D515744E6600074979 /* Controller.h */,
-				DD7466D615744E6600074979 /* Funcs.h */,
 				DD7466D715744E6600074979 /* gui.h */,
 				DD7466D815744E6600074979 /* sistema.h */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,

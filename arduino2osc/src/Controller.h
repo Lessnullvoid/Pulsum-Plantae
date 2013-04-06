@@ -15,8 +15,6 @@
 
 #include "gui.h"
 #include "sistema.h"
-#include "Funcs.h"
-
 
 class Controller : public ofBaseApp{
 public:
@@ -34,8 +32,8 @@ public:
 		inputManager = ofPtr<InputManager>(new InputManager());
 		setupModes();
 		inputManager->setCurrentModule(module);
-				
-		presetManager->addPreset(0);
+
+		newPreset = 0;
 		
 		string str = "ADDRESS";
 		addAddress(str);
@@ -56,7 +54,6 @@ public:
 		gui = ofPtr<GUI>(new GUI());
 		guiMode = ofPtr<GUImode>(new GUImode());
 		
-		presetManager = ofPtr<PresetManager>(new PresetManager());
 		presets = ofPtr<Presets>(new Presets(0,0,300,320));
 		
 		guiModule = presets;
@@ -93,8 +90,10 @@ public:
 				slider  =   guiModule->getSlider(i);
 			else createRouting=false;
 			
+			/* ???
 			if(createRouting)
 				module->addRouting(input, ofPtr<aFunc>(new aFunc(input,slider,presetManager,oscsender,i)));
+			 */
 		}
 		
 		mode->addModule( module );
@@ -103,27 +102,17 @@ public:
 	
     
 	void addAddress(string _address){
-		
-		int bank = presetManager->getCurrentBank();
-		int newPreset = presetManager->getBankPresetNum(bank)-1;
-        
-		presetManager->setCurrentPreset(newPreset);
-        
-		presetManager->addAddress( _address );
 		vector<ofxUIToggle*> toggles = presets->getMatrix(1)->getToggles();
         
 		if(toggles[newPreset]) {
 			toggles[newPreset]->setColorBack(ofColor(ofRandomuf()*255,ofRandomuf()*255,ofRandomuf()*255));
 		}
-        
 	}
 	
     
 	void update(){
 		vector<float> values;
-		
 		arduino->update();
-		
 		values = arduino->getNewValues();
 		
 		for (int i=0; i<values.size(); i++){
@@ -136,25 +125,19 @@ public:
 	
 	void guiEvent(ofxUIEventArgs &e) {
 		int index;
-		int bank;
 		string str;
 		
 		string name = e.widget->getName();
-		//int kind = e.widget->getKind();
 		cout << "got event from: " << name << endl;
 		
 		if(name == "guardar") {
 			ofxUIToggle *toggle = (ofxUIToggle *) e.widget;
             
 			if(toggle->getValue()){
-				bank = presetManager->getCurrentBank();
-				int newPreset = presetManager->getBankPresetNum(bank);
-				
-				presetManager->setCurrentPreset(newPreset);
+				newPreset++;
 				
 				for (int i=0; i<ANALOG_INPUTS; i++) {
 					str = sensors->getTextInput(i)->getTextString();
-					presetManager->addPreset(bank,newPreset,str);
 				}
                 
 				vector<ofxUIToggle*> toggles = presets->getMatrix(1)->getToggles();
@@ -162,8 +145,6 @@ public:
 				if(toggles[newPreset]) {
 					toggles[newPreset]->setColorBack(ofColor(ofRandomuf()*255,ofRandomuf()*255,ofRandomuf()*255));
 				}
-                
-				int numBank = presetManager->getCurrentBank();
 				
 				for (int j=0; j<ANALOG_INPUTS; j++) {
 					str = sensors->getTextInput(j)->getTextString();
@@ -172,17 +153,11 @@ public:
 		}
 		
 		if(name.substr(0,7) == "presets"){
-			bank = presetManager->getCurrentBank();
-			
 			index = ( ofToInt(name.substr(8,1))*8 ) + ofToInt(name.substr(10,1));
 			string str;
 			
-			if(index< presetManager->getBankPresetNum(bank)) {
-				for (int i=0; i<ANALOG_INPUTS; i++) {
-					str = presetManager->getAddress(bank,index,i);
-					sensors->getTextInput(i)->setTextString(str);
-				}
-				presetManager->setCurrentPreset(index);
+			for (int i=0; i<ANALOG_INPUTS; i++) {
+				sensors->getTextInput(i)->setTextString(str);
 			}
 		}
 		
@@ -228,7 +203,7 @@ public:
 	void gotMessage(ofMessage msg){}
 	
 	ofPtr< Input > input;
-	ofPtr< PresetManager > presetManager;
+	int newPreset;
 	
 	ofPtr< OscSender > oscsender;
 	ofPtr< ofxUISlider > slider;
