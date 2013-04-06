@@ -1,8 +1,8 @@
-  int analogValue = 0;   
-  int analogValue1 = 1; 
-  int analogValue2 = 2; 
-  int analogValue3 = 3; 
-  int analogValue4 = 4; 
+int analogValue = 0;   
+int analogValue1 = 1; 
+int analogValue2 = 2; 
+int analogValue3 = 3; 
+int analogValue4 = 4; 
 void setup() {
 
   Serial.begin(9600);
@@ -15,7 +15,7 @@ void loop() {
   analogValue2 = analogRead(2);
   analogValue3 = analogRead(3);
   analogValue4 = analogRead(4);
-  
+
 
 
   Serial.print(analogValue, DEC);         
@@ -33,3 +33,4 @@ void loop() {
   // delay 10 milliseconds before the next reading:
   delay(10);
 }
+
