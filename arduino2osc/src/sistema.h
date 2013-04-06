@@ -16,10 +16,10 @@ class FunctorHolder: public Functor {
             }
         }
 
-        void addFunc(shared_ptr<Functor> _func) {
+        void addFunc(ofPtr<Functor> _func) {
             functors.push_back(_func);
         }
-        vector< shared_ptr<Functor> > functors;
+        vector< ofPtr<Functor> > functors;
 };
 
 
@@ -288,7 +288,8 @@ class InputGroup{
 
         void addInputs(int _no, string _type, string _prefix){
             for (int i=0; i<_no; i++)
-                inputs.push_back(make_shared<Input>(_prefix+ofToString(i),_type));
+	      //inputs.push_back(make_shared<Input>(_prefix+ofToString(i),_type));
+	      inputs.push_back(ofPtr<Input>(new Input(_prefix+ofToString(i),_type)));
         }
 
         void setType(string _type) {
@@ -300,7 +301,7 @@ class InputGroup{
         }
 
         string type, name;
-        vector< shared_ptr<Input> > inputs;
+        vector< ofPtr<Input> > inputs;
 
 };
 
@@ -310,11 +311,11 @@ class Module{
     public:
         Module(){}
 
-        void addRouting(shared_ptr<Input> _input, shared_ptr<Functor> _func) {
+        void addRouting(ofPtr<Input> _input, ofPtr<Functor> _func) {
             routings.insert( make_pair( _input, _func ) );
         }
 
-        void setValue( shared_ptr<Input>  _input ) {
+        void setValue( ofPtr<Input>  _input ) {
 
             Routing::const_iterator iter;
 	        iter = routings.find( _input );
@@ -322,14 +323,14 @@ class Module{
 	            return iter->second->execute();
         }
 
-        void setGUI(shared_ptr<GUImodule> _module){
+        void setGUI(ofPtr<GUImodule> _module){
             gui = _module;
         }
 
-        typedef map< shared_ptr<Input>, shared_ptr<Functor> > Routing;
+        typedef map< ofPtr<Input>, ofPtr<Functor> > Routing;
         Routing routings;
 
-        shared_ptr<GUImodule> gui;
+        ofPtr<GUImodule> gui;
 
 
 //routing [inputarray,funcs]
@@ -345,11 +346,11 @@ class Mode{
     public:
         Mode(){}
 
-        void addModule ( shared_ptr<Module> _module ) {
+        void addModule ( ofPtr<Module> _module ) {
             modules.push_back( _module );
         }
 
-    vector< shared_ptr<Module> > modules;
+    vector< ofPtr<Module> > modules;
 
 };
 
@@ -364,12 +365,12 @@ class InputManager{
 
         void setupInputs(){
             for (int i=0; i<ANALOG_INPUTS; i++) {
-                shared_ptr<Input > input = make_shared<Input >("analog"+ofToString(i), "float");
+	      ofPtr<Input > input = ofPtr<Input>(new Input("analog"+ofToString(i), "float"));//make_shared<Input >("analog"+ofToString(i), "float");
                 inputs.push_back( input );
             }
         }
 
-        shared_ptr< Input > getInput(int _i) {
+        ofPtr< Input > getInput(int _i) {
             if(inputs.size())
                 return inputs[_i];
         }
@@ -382,7 +383,7 @@ class InputManager{
                 return 0;
         }
 
-        void setCurrentModule( shared_ptr<Module> _module ) {
+        void setCurrentModule( ofPtr<Module> _module ) {
             currentModule = _module;
         }
 
@@ -396,9 +397,9 @@ class InputManager{
 
 
 
-        vector< shared_ptr< Input  > > inputs;
-        vector< shared_ptr< Module > > modules;
-        shared_ptr< Module > currentModule;
+        vector< ofPtr< Input  > > inputs;
+        vector< ofPtr< Module > > modules;
+        ofPtr< Module > currentModule;
 
 
 
@@ -518,8 +519,8 @@ public:
                     return presets[_bank][_preset][_i];
     }
     
-    vector< shared_ptr< Input  > > inputs;
-    vector< shared_ptr< Module > > modules;
+    vector< ofPtr< Input  > > inputs;
+    vector< ofPtr< Module > > modules;
     //shared_ptr< vector<string> > currentPreset;
     
     vector< vector< vector<string> > > presets;

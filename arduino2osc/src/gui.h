@@ -14,7 +14,7 @@ class GUImodule{
     public:
         GUImodule(float _x, float _y, float _w, float _h){
             x=_x; y=_y; width=_w; height=_h;
-            canvas = make_shared<ofxUICanvas>(_x, _y, _w, _h);
+            canvas = ofPtr<ofxUICanvas>(new ofxUICanvas(_x, _y, _w, _h));//make_shared<ofxUICanvas>(_x, _y, _w, _h);
             canvas->setDrawBack(false); 
         
             canvas->setFont("franklinGothic.otf");                     
@@ -31,73 +31,75 @@ class GUImodule{
         }
 
 
-        virtual void addWidget(shared_ptr<ofxUIWidget> _widget) {
+        virtual void addWidget(ofPtr<ofxUIWidget> _widget) {
             widgets.push_back(_widget);
         }
 
-        virtual void addSlider(shared_ptr<ofxUISlider> _slider) {
+        virtual void addSlider(ofPtr<ofxUISlider> _slider) {
             sliders.push_back(_slider);
         }
 
-        virtual void addRangeSlider(shared_ptr<ofxUIRangeSlider> _rangeSlider) {
+        virtual void addRangeSlider(ofPtr<ofxUIRangeSlider> _rangeSlider) {
             rangeSliders.push_back(_rangeSlider);
         }
 
-        virtual void addRotarySlider(shared_ptr<ofxUIRotarySlider> _rotarySlider) {
+        virtual void addRotarySlider(ofPtr<ofxUIRotarySlider> _rotarySlider) {
             rotarySliders.push_back(_rotarySlider);
         }
 
-        virtual void addLabelToggle( shared_ptr<ofxUILabelToggle> _labelToggle ) {
+        virtual void addLabelToggle( ofPtr<ofxUILabelToggle> _labelToggle ) {
             labelToggles.push_back( _labelToggle );
         }
     
-        virtual void addDropDown( shared_ptr<ofxUIDropDownList> _dropdown ) {
+        virtual void addDropDown( ofPtr<ofxUIDropDownList> _dropdown ) {
             dropdowns.push_back( _dropdown );
         }
     
-        virtual void addTextInput( shared_ptr<ofxUITextInput> _input ) {
+        virtual void addTextInput( ofPtr<ofxUITextInput> _input ) {
             textInputs.push_back( _input );
         }
     
-        virtual void addButton( shared_ptr<ofxUIButton> _button ) {
+        virtual void addButton( ofPtr<ofxUIButton> _button ) {
             buttons.push_back( _button );
         }
 
-        virtual void addMatrix( shared_ptr<ofxUIToggleMatrix> _matrix ) {
+        virtual void addMatrix( ofPtr<ofxUIToggleMatrix> _matrix ) {
             matrix.push_back( _matrix );
         }
     
-        shared_ptr<ofxUISlider> getSlider( int _i ) {
+        ofPtr<ofxUISlider> getSlider( int _i ) {
             if(sliders.size())
                 return sliders[_i];
+	    else
+	      return ofPtr<ofxUISlider>();
         }
 
-        shared_ptr<ofxUIRangeSlider> getRangeSlider( int _i ) {
+        ofPtr<ofxUIRangeSlider> getRangeSlider( int _i ) {
             if(rangeSliders.size())
                 return rangeSliders[_i];
         }
 
-        shared_ptr<ofxUILabelToggle> getLabelToggle( int _i ) {
+        ofPtr<ofxUILabelToggle> getLabelToggle( int _i ) {
             if(labelToggles.size())
                 return labelToggles[_i];
         }
     
-        shared_ptr<ofxUIDropDownList> getDropDown( int _i ) {
+        ofPtr<ofxUIDropDownList> getDropDown( int _i ) {
             if(dropdowns.size())
                 return dropdowns[_i];
         }
     
-        shared_ptr<ofxUIButton> getButton( int _i ) {
+        ofPtr<ofxUIButton> getButton( int _i ) {
             if(buttons.size())
                 return buttons[_i];
         }
     
-        shared_ptr<ofxUITextInput> getTextInput( int _i ) {
+        ofPtr<ofxUITextInput> getTextInput( int _i ) {
             if(textInputs.size())
                 return textInputs[_i];
         }
 
-        shared_ptr<ofxUIToggleMatrix> getMatrix( int _i ) {
+        ofPtr<ofxUIToggleMatrix> getMatrix( int _i ) {
             if(matrix.size())
                 return matrix[_i];
         }
@@ -108,7 +110,7 @@ class GUImodule{
                 return canvasArray.size();
         }
     
-        shared_ptr<ofxUICanvas> getCanvas( int _i ) {
+        ofPtr<ofxUICanvas> getCanvas( int _i ) {
             if(canvasArray.size())
                 if(_i<canvasArray.size())
                     return canvasArray[_i];
@@ -118,20 +120,20 @@ class GUImodule{
 
     protected:
 
-        shared_ptr<ofxUICanvas> canvas;
-        vector< shared_ptr<ofxUICanvas> > canvasArray;
+        ofPtr<ofxUICanvas> canvas;
+        vector< ofPtr<ofxUICanvas> > canvasArray;
 
-        vector< shared_ptr<ofxUISlider> >           sliders;
-        vector< shared_ptr<ofxUIRangeSlider> >      rangeSliders;
-        vector< shared_ptr<ofxUIRotarySlider> >     rotarySliders;
-        vector< shared_ptr<ofxUILabelToggle> >      labelToggles;
-        vector< shared_ptr<ofxUIDropDownList> >     dropdowns;
-        vector< shared_ptr<ofxUITextInput> >        textInputs;
-        vector< shared_ptr<ofxUIButton> >           buttons;
+        vector< ofPtr<ofxUISlider> >           sliders;
+        vector< ofPtr<ofxUIRangeSlider> >      rangeSliders;
+        vector< ofPtr<ofxUIRotarySlider> >     rotarySliders;
+        vector< ofPtr<ofxUILabelToggle> >      labelToggles;
+        vector< ofPtr<ofxUIDropDownList> >     dropdowns;
+        vector< ofPtr<ofxUITextInput> >        textInputs;
+        vector< ofPtr<ofxUIButton> >           buttons;
 
-        vector< shared_ptr<ofxUIToggleMatrix> >     matrix;
+        vector< ofPtr<ofxUIToggleMatrix> >     matrix;
 
-        vector< shared_ptr<ofxUIWidget> > widgets;
+        vector< ofPtr<ofxUIWidget> > widgets;
 
         float x,y,width,height;
 
@@ -158,7 +160,7 @@ class SensorDialog: public GUImodule{
         ofxUIRangeSlider * rslider;
         ofxUIButton * button;
         
-        canvasL = make_shared<ofxUICanvas>(x, y+60, width/2, height-20);
+        canvasL = ofPtr<ofxUICanvas>(new ofxUICanvas(x, y+60, width/2, height-20));//make_shared<ofxUICanvas>(x, y+60, width/2, height-20);
         canvasL->setDrawBack(false); 
         
         canvasL->setFont("franklinGothic.otf");                     
@@ -167,7 +169,7 @@ class SensorDialog: public GUImodule{
         canvasL->setFontSize(OFX_UI_FONT_SMALL, 5);     
         
         canvasArray.push_back( canvasL );
-        canvasR = make_shared<ofxUICanvas>(x+width/2, y+60, width/2, height-20);
+        canvasR = ofPtr<ofxUICanvas>(new ofxUICanvas(x+width/2, y+60, width/2, height-20));//make_shared<ofxUICanvas>(x+width/2, y+60, width/2, height-20);
         canvasR->setDrawBack(false); 
         
         canvasR->setFont("franklinGothic.otf");                     
@@ -180,7 +182,7 @@ class SensorDialog: public GUImodule{
 
         dropdown = new ofxUIDropDownList(width/2, "SERIALPORT", serialList, OFX_UI_FONT_SMALL);
         canvas->addWidgetLeft(dropdown);
-        shared_ptr<ofxUIDropDownList> shrdropdown(dropdown,null_deleter());
+        ofPtr<ofxUIDropDownList> shrdropdown(dropdown,null_deleter());
         addDropDown( shrdropdown );
         dropdown->setDrawBack( true ); 
         dropdown->setAutoClose( true );
@@ -188,7 +190,7 @@ class SensorDialog: public GUImodule{
         button = new ofxUIButton( width/2, 20, false, "SAVERANGES" );
         button->setLabelVisible(true);
         canvas->addWidgetRight(button);
-        shared_ptr<ofxUIButton> shrbutton(button,null_deleter());
+        ofPtr<ofxUIButton> shrbutton(button,null_deleter());
         addButton( shrbutton );
         button->setDrawBack( true ); 
         
@@ -200,7 +202,7 @@ class SensorDialog: public GUImodule{
         {
             
             input = new ofxUITextInput(width*0.45f, "nombre", "osc"+ofToString(i), OFX_UI_FONT_SMALL);
-            shared_ptr<ofxUITextInput> shrinput(input,null_deleter());
+            ofPtr<ofxUITextInput> shrinput(input,null_deleter());
             addTextInput( shrinput );
             input->setAutoClear(false); 
 
@@ -209,14 +211,14 @@ class SensorDialog: public GUImodule{
             //rslider->setLabelVisible(false);
             rslider->setPadding(0);
             
-            shared_ptr<ofxUIRangeSlider> shrrslider(rslider,null_deleter());
+            ofPtr<ofxUIRangeSlider> shrrslider(rslider,null_deleter());
             addRangeSlider( shrrslider );
             
             slider = new ofxUISlider(width*0.45f,10, 0.0, 1023.0, 0.0, "SLIDER"+ofToString(i));
             //slider->setLabelVisible(false);
             slider->setPadding(0);
             
-            shared_ptr<ofxUISlider> shrslider(slider,null_deleter());
+            ofPtr<ofxUISlider> shrslider(slider,null_deleter());
             addSlider( shrslider );
             
             if(i<3) {
@@ -241,7 +243,7 @@ class SensorDialog: public GUImodule{
     protected:
     
     vector<string> serialList;
-    shared_ptr<ofxUICanvas> canvasL,canvasR;
+    ofPtr<ofxUICanvas> canvasL,canvasR;
 
 
 };
@@ -269,14 +271,14 @@ public:
         matrix=new ofxUIToggleMatrix(width/10, width/10, 1, 8, "bancos");
         matrix->setAllowMultiple(false);
         canvas->addWidgetDown(matrix); 
-        shared_ptr<ofxUIToggleMatrix> shrmatrix(matrix,null_deleter());
+        ofPtr<ofxUIToggleMatrix> shrmatrix(matrix,null_deleter());
         
         addMatrix(shrmatrix);
         
         matrix=new ofxUIToggleMatrix(width/10, width/10, 4,8, "presets");
         matrix->setAllowMultiple(false);
         canvas->addWidgetDown(matrix); 
-        shared_ptr<ofxUIToggleMatrix>shrmatrix2(matrix,null_deleter());
+        ofPtr<ofxUIToggleMatrix>shrmatrix2(matrix,null_deleter());
         
         
         addMatrix(shrmatrix2);
@@ -505,7 +507,7 @@ class GUImode{
         GUImode(){}
         virtual ~GUImode(){}
 
-        void addModule(shared_ptr<GUImodule> _module ) {
+        void addModule(ofPtr<GUImodule> _module ) {
             modules.push_back(_module);
         }
     
@@ -516,13 +518,13 @@ class GUImode{
                 return 0;
         }
     
-        shared_ptr<GUImodule> getModule( int _i ) {
+        ofPtr<GUImodule> getModule( int _i ) {
             if(modules.size())
                 return modules[_i];
         }
 
     protected:
-        vector< shared_ptr<GUImodule> > modules;
+        vector< ofPtr<GUImodule> > modules;
 
 };
 
@@ -537,10 +539,10 @@ class GUI{
         void init(){
         }
 
-        void addMode(shared_ptr<GUImode> _mode ) {
+        void addMode(ofPtr<GUImode> _mode ) {
             modes.push_back(_mode);
         }
 
-    vector< shared_ptr<GUImode> > modes;
+    vector< ofPtr<GUImode> > modes;
 
 };

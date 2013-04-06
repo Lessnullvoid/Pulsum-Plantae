@@ -13,9 +13,9 @@ class Controller{
 
         void init(){
         
-            arduino = make_shared<Arduino>();
+	  arduino = ofPtr<Arduino>(new Arduino());//make_shared<Arduino>();
             
-            inputManager = make_shared<InputManager>( );
+	  inputManager = ofPtr<InputManager>(new InputManager());//make_shared<InputManager>( );
             setupModes();
             inputManager->setCurrentModule(module);
             
@@ -94,20 +94,20 @@ class Controller{
         void setupModes(){
 
 
-            mode = make_shared<Mode>();
-            module = make_shared<Module>();
+	  mode = ofPtr<Mode>(new Mode());//make_shared<Mode>();
+	  module = ofPtr<Module>(new Module());//make_shared<Module>();
 
-            gui = make_shared<GUI>( );
-            guiMode = make_shared<GUImode>();
+	  gui = ofPtr<GUI>(new GUI());//make_shared<GUI>( );
+	  guiMode = ofPtr<GUImode>(new GUImode());//make_shared<GUImode>();
 
-            presetManager = make_shared<PresetManager>();
+	  presetManager = ofPtr<PresetManager>(new PresetManager());//make_shared<PresetManager>();
 
-            presets = make_shared<Presets>( 0, 0, 300, 320 );
+	  presets = ofPtr<Presets>(new Presets(0,0,300,320));//make_shared<Presets>( 0, 0, 300, 320 );
 
             guiModule = presets;
             guiMode->addModule(guiModule);
             
-            sensors = make_shared<SensorDialog>( 0, 320, 300, 450 );
+            sensors = ofPtr<SensorDialog>(new SensorDialog(0,320,300,450));//make_shared<SensorDialog>( 0, 320, 300, 450 );
             
             sensors->setSerialList( arduino->getSerialList() );
             
@@ -133,7 +133,7 @@ class Controller{
 
             bool createRouting=true;
 
-            oscsender  =   make_shared < OscSender > ();
+            oscsender  =   ofPtr<OscSender>(new OscSender());//make_shared < OscSender > ();
 
             for (int i=0; i<inputNum; i++) {
                 
@@ -148,9 +148,8 @@ class Controller{
                 //pdsend  =   make_shared < PdSend > ("send"+ofToString(i),"");
 
                 if(createRouting)
-                    module->addRouting(
-                        input, make_shared<aFunc>(input,slider,presetManager,oscsender,i)
-                    );
+		  module->addRouting(input, ofPtr<aFunc>(new aFunc(input,slider,presetManager,oscsender,i)));
+		  //module->addRouting(input, make_shared<aFunc>(input,slider,presetManager,oscsender,i));
 
             }
 
@@ -356,27 +355,27 @@ class Controller{
 
 
 
-        shared_ptr< Input > input;
-        shared_ptr< PresetManager > presetManager;
+        ofPtr< Input > input;
+        ofPtr< PresetManager > presetManager;
 
-        shared_ptr< OscSender > oscsender;
-        shared_ptr< ofxUISlider > slider;
-        shared_ptr< ofxUIRangeSlider > rslider;
+        ofPtr< OscSender > oscsender;
+        ofPtr< ofxUISlider > slider;
+        ofPtr< ofxUIRangeSlider > rslider;
 
-        shared_ptr<GUI>  gui;
-        shared_ptr<Arduino> arduino;
-        vector< shared_ptr<Mode> > modes;
-        shared_ptr<InputManager> inputManager;
+        ofPtr<GUI>  gui;
+        ofPtr<Arduino> arduino;
+        vector< ofPtr<Mode> > modes;
+        ofPtr<InputManager> inputManager;
 
         //shared_ptr<AppCore> pd;
-        shared_ptr< GUImode >  guiMode;
-        shared_ptr< GUImodule > guiModule;
-        shared_ptr< Mode > mode;
-        shared_ptr< Module > module;
+        ofPtr< GUImode >  guiMode;
+        ofPtr< GUImodule > guiModule;
+        ofPtr< Mode > mode;
+        ofPtr< Module > module;
     
     
-        shared_ptr<Presets> presets;
-        shared_ptr<SensorDialog> sensors;
+        ofPtr<Presets> presets;
+        ofPtr<SensorDialog> sensors;
     
         ofxXmlSettings XML;
 

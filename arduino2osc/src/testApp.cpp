@@ -3,18 +3,14 @@
 
 //--------------------------------------------------------------
 void testApp::setup(){
-    ctl = make_shared<Controller>();
+  ctl = ofPtr<Controller>(new Controller());//make_shared<Controller>();
 
-
-    
-    
 	ofSetVerticalSync(true);
 	ofSetFrameRate(60);
 
 	ofBackground(125,125,125);
 
 	font.loadFont("franklinGothic.otf", 20);
-
 }
 
 //--------------------------------------------------------------

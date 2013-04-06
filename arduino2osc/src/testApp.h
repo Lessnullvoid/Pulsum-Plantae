@@ -12,16 +12,16 @@
 
 
 #include <tr1/memory>
-#include <boost/pointer_cast.hpp>
-#include <boost/shared_ptr.hpp>
-#include <boost/enable_shared_from_this.hpp>
-#include <boost/make_shared.hpp>
+//#include <boost/pointer_cast.hpp>
+//#include <boost/shared_ptr.hpp>
+//#include <boost/enable_shared_from_this.hpp>
+//#include <boost/make_shared.hpp>
 
 
-using boost::shared_ptr;
-using boost::enable_shared_from_this;
-using boost::dynamic_pointer_cast;
-using boost::make_shared;
+//using boost::shared_ptr;
+//using boost::enable_shared_from_this;
+//using boost::dynamic_pointer_cast;
+//using boost::make_shared;
 
 #include "ofMain.h"
 #include "ofEvents.h"
@@ -65,8 +65,6 @@ public:
 	bool		bSetupArduino;			// flag variable for setting up arduino once
     
 
-    shared_ptr <Controller> ctl;
-    
-    
+	ofPtr<Controller> ctl;
 };
 
