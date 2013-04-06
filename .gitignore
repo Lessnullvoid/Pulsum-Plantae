@@ -26,3 +26,7 @@ Release*/
 */bin/*
 !*/bin/data
 */bin/data/openni
+
+#emacs
+*~
+.*~
