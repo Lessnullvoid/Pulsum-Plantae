@@ -1,54 +1,26 @@
 #include "testApp.h"
 
-
 //--------------------------------------------------------------
 void testApp::setup(){
-  ctl = ofPtr<Controller>(new Controller());//make_shared<Controller>();
-
-	ofSetVerticalSync(true);
-	ofSetFrameRate(60);
-
-	ofBackground(125,125,125);
-
-	font.loadFont("verdana.ttf", 20);
+  ctl = ofPtr<Controller>(new Controller());
+  ofSetVerticalSync(true);
+  ofSetFrameRate(60);
+  ofBackground(125,125,125);
 }
 
 //--------------------------------------------------------------
 void testApp::update(){
-    
-}
-
-//--------------------------------------------------------------
-
-//--------------------------------------------------------------
-void testApp::updateArduino(){
-
-	// update the arduino, get any data or messages.
-//	ard.update();
-	
-
-	
 
 }
-
 
 //--------------------------------------------------------------
 void testApp::draw(){
-	//bgImage.draw(0,0);
-/*
-	if (!bSetupArduino){
-		font.drawString("arduino not ready\n", 545, 40);
-	} else {
-		font.drawString("analog pin 0: " + ofToString(ard.getAnalog(0)) +
-						"\nsending pwm: " + ofToString((int)(128 + 128 * sin(ofGetElapsedTimef()))), 545, 40);
-        
-        for(int i = 0; i<13; i++)
-            font.drawString(ofToString(ard.getDigital(i)),55+(i*30), 110);
 
+}
 
-	}
- 
- */
+//--------------------------------------------------------------
+void testApp::exit(){
+    ctl->exit();
 }
 
 //--------------------------------------------------------------
@@ -73,12 +45,12 @@ void testApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void testApp::mousePressed(int x, int y, int button){
-	//ard.sendDigital(13, ARD_HIGH);
+
 }
 
 //--------------------------------------------------------------
 void testApp::mouseReleased(int x, int y, int button){
-	//ard.sendDigital(13, ARD_LOW);
+
 }
 
 //--------------------------------------------------------------
@@ -95,11 +67,3 @@ void testApp::gotMessage(ofMessage msg){
 void testApp::dragEvent(ofDragInfo dragInfo){ 
 
 }
-
-
-void testApp::exit(){ 
-    
-    ctl->exit();
-}
-
-
