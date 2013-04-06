@@ -8,7 +8,7 @@ class Controller{
         }
         ~Controller(){
             arduino->disconnect();
-            ofRemoveListener(ofEvents.update,this,&Controller::update);
+            ofRemoveListener(ofEvents().update,this,&Controller::update);
         }
 
         void init(){
@@ -19,7 +19,7 @@ class Controller{
             setupModes();
             inputManager->setCurrentModule(module);
             
-            ofAddListener(ofEvents.update,this,&Controller::update);
+            ofAddListener(ofEvents().update,this,&Controller::update);
 
             
             
