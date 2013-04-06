@@ -1,3 +1,5 @@
+#pragma once
+
 class aFunc: public Functor{
  public:
   aFunc(ofPtr<Input> _input, ofPtr<ofxUISlider> _slider,ofPtr<PresetManager> _presetManager, ofPtr<OscSender>  _oscSender, int _index){

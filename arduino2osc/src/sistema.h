@@ -1,3 +1,5 @@
+#pragma once
+
 class Functor {
  public:
   virtual void execute() {};
