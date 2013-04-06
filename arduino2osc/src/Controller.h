@@ -1,19 +1,39 @@
-class Controller{
+#pragma once
+#define HOST "localhost"
+#define PORT 8001
+
+#define BAUD_RATE 57600
+
+#define ANALOG_INPUTS 6
+
+#define SENSOR_VALUE_COUNT 12
+#define SENSOR_VALUE_THRESHOLD 5
+
+#include "ofxXmlSettings.h"
+#include "ofxUI.h"
+#include "ofxOsc.h"
+
+#include "gui.h"
+#include "sistema.h"
+#include "Funcs.h"
+
+
+class Controller : public ofBaseApp{
  public:
+  Controller(){}
   ~Controller(){
     arduino->disconnect();
-    ofRemoveListener(ofEvents().update,this,&Controller::update);
   }
 
-  Controller(){
+  void setup(){
+    ofSetVerticalSync(true);
+    ofSetFrameRate(60);
+    ofBackground(125,125,125);
+
     arduino = ofPtr<Arduino>(new Arduino());
-	  
     inputManager = ofPtr<InputManager>(new InputManager());
     setupModes();
-    inputManager->setCurrentModule(module);
-            
-    ofAddListener(ofEvents().update,this,&Controller::update);
-            
+    inputManager->setCurrentModule(module);            
     XML.loadFile("xml/presets.xml");
             
     int numBanks = XML.getNumTags("BANK");
@@ -137,7 +157,7 @@ class Controller{
   }
 
     
-  void update(ofEventArgs & args){
+  void update(){
     vector<float> values;
             
     arduino->update();
@@ -254,12 +274,22 @@ class Controller{
       XML.saveFile("xml/presets.xml");
     }
   }
-  
-  
+
   void exit(){
     arduino->disconnect();
   }
-  
+
+  ////// to inherit ofBaseApp properly
+  void keyPressed  (int key){}
+  void keyReleased(int key){}
+  void mouseMoved(int x, int y){}
+  void mouseDragged(int x, int y, int button){}
+  void mousePressed(int x, int y, int button){}
+  void mouseReleased(int x, int y, int button){}
+  void windowResized(int w, int h){}
+  void dragEvent(ofDragInfo dragInfo){}
+  void gotMessage(ofMessage msg){}
+
   ofPtr< Input > input;
   ofPtr< PresetManager > presetManager;
   
