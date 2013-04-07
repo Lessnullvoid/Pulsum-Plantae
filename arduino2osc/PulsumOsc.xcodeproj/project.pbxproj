@@ -151,7 +151,7 @@
 		AF06C29B1710230100CC0018 /* tinyxmlparser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxmlparser.cpp; sourceTree = "<group>"; };
 		AF06C29D1710230100CC0018 /* ofxXmlSettings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxXmlSettings.cpp; sourceTree = "<group>"; };
 		AF06C29E1710230100CC0018 /* ofxXmlSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxXmlSettings.h; sourceTree = "<group>"; };
-		AF06C36D1710259C00CC0018 /* arduino2oscDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = arduino2oscDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF06C36D1710259C00CC0018 /* arduino2osc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = arduino2osc.app; path = "/Users/thiago/Dev/openFrameworks/apps/Pulsum-Plantae/arduino2osc/bin/arduino2osc.app"; sourceTree = "<absolute>"; };
 		AF362C1E17110BB200370E52 /* PulsumOsc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PulsumOsc.cpp; sourceTree = "<group>"; };
 		AF362C1F17110BB200370E52 /* PulsumOsc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PulsumOsc.h; sourceTree = "<group>"; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
@@ -444,7 +444,6 @@
 				E4EEC9E9138DF44700A80321 /* openFrameworks */,
 				BB4B014C10F69532006C3DED /* addons */,
 				E45BE5980E8CC70C009D7055 /* frameworks */,
-				AF06C36D1710259C00CC0018 /* arduino2oscDebug.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -470,9 +469,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E4B69B5A0A3A1756003C02F2 /* arduino2osc */ = {
+		E4B69B5A0A3A1756003C02F2 /* PulsumOsc */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E4B69B5F0A3A1757003C02F2 /* Build configuration list for PBXNativeTarget "arduino2osc" */;
+			buildConfigurationList = E4B69B5F0A3A1757003C02F2 /* Build configuration list for PBXNativeTarget "PulsumOsc" */;
 			buildPhases = (
 				E4B69B580A3A1756003C02F2 /* Sources */,
 				E4B69B590A3A1756003C02F2 /* Frameworks */,
@@ -484,9 +483,9 @@
 			dependencies = (
 				E4EEB9AC138B136A00A80321 /* PBXTargetDependency */,
 			);
-			name = arduino2osc;
+			name = PulsumOsc;
 			productName = myOFApp;
-			productReference = AF06C36D1710259C00CC0018 /* arduino2oscDebug.app */;
+			productReference = AF06C36D1710259C00CC0018 /* arduino2osc.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -494,7 +493,7 @@
 /* Begin PBXProject section */
 		E4B69B4C0A3A1720003C02F2 /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "arduino2osc" */;
+			buildConfigurationList = E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "PulsumOsc" */;
 			compatibilityVersion = "Xcode 2.4";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -515,7 +514,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				E4B69B5A0A3A1756003C02F2 /* arduino2osc */,
+				E4B69B5A0A3A1756003C02F2 /* PulsumOsc */,
 			);
 		};
 /* End PBXProject section */
@@ -839,7 +838,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "arduino2osc" */ = {
+		E4B69B4D0A3A1720003C02F2 /* Build configuration list for PBXProject "PulsumOsc" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E4B69B4E0A3A1720003C02F2 /* Debug */,
@@ -848,7 +847,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E4B69B5F0A3A1757003C02F2 /* Build configuration list for PBXNativeTarget "arduino2osc" */ = {
+		E4B69B5F0A3A1757003C02F2 /* Build configuration list for PBXNativeTarget "PulsumOsc" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E4B69B600A3A1757003C02F2 /* Debug */,
