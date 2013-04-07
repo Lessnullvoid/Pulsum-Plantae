@@ -2,7 +2,7 @@
 
 #include "ofMain.h"
 #include "ofxUI.h"
-
+#include "Sensor.h"
 
 class PulsumOsc : public ofBaseApp{
 	
@@ -32,6 +32,8 @@ public:
 
 	ofxUICanvas mGui;
 	void guiListener(ofxUIEventArgs &args);
-		
+	float verticalUnit;
+
 	ofSerial mSerial;
+	vector<Sensor> theSensors;
 };

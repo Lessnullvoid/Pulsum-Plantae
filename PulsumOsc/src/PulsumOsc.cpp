@@ -17,19 +17,26 @@ vector<string>& PulsumOsc::updateSerialList(){
 void PulsumOsc::setup(){
 	ofSetVerticalSync(true);
 	ofEnableAlphaBlending();
+	ofEnableSmoothing();
 
+	verticalUnit = ofGetHeight()/18;
+	
 	//////////////// the serial GUI
 	mGui.setFont("verdana.ttf");
 	////// Serial Port list
-	guiSerialList = (ofxUIDropDownList*) mGui.addWidgetDown(new ofxUIDropDownList("Serial List", theSerialList));
+	guiSerialList = (ofxUIDropDownList*) mGui.addWidgetDown(new ofxUIDropDownList(0, 0, 300, "Serial List", theSerialList,0));
 	guiSerialList->setAutoClose(true);
 	
 	mGui.autoSizeToFitWidgets();
 	mGui.setColorBack(ofColor(100,200));
+	mGui.setPosition(90, verticalUnit);
 	ofAddListener(mGui.newGUIEvent,this,&PulsumOsc::guiListener);
 	
 	////////////////
 	bUpdateSerialList = true;
+	for(int i=0; i<6;i++){
+		theSensors.push_back(Sensor());
+	}
 }
 
 //--------------------------------------------------------------
@@ -46,17 +53,17 @@ void PulsumOsc::update(){
 
 	// read serial port
 	while((mSerial.isInitialized()) && (mSerial.available() > 2)){
-		if (mSerial.readByte() == 0xAB) {
+		if(mSerial.readByte() == 0xAB){
 			int upperByte = mSerial.readByte();
 			int lowerByte = mSerial.readByte();
 			
-			int pinNumber = (upperByte>>0x04)&0x07;
-			int value = ((upperByte<<8)&0x0F00) | (lowerByte&0xFF);
-
-			cout << "val["<< pinNumber << "] = " << value << endl;
+			unsigned short pinNumber = (upperByte>>0x04)&0x07;
+			unsigned short value = ((upperByte<<8)&0x0F00) | (lowerByte&0xFF);
+			
+			//cout << "val["<< pinNumber << "] = " << value << endl;
+			theSensors.at(pinNumber).addValue(value);
 		}
 	}
-	
 }
 
 //--------------------------------------------------------------
@@ -65,6 +72,18 @@ void PulsumOsc::draw(){
 
 	ofSetColor(255,255,0);
 	ofDrawBitmapString(ofToString((int) ofGetFrameRate()), 10, ofGetHeight()-20);
+	
+	for(int i=0; i<2; i++){
+		ofPushMatrix();
+		ofTranslate(390*i+90,3*verticalUnit);
+		for(int j=0; j<3;j++){
+			ofPushMatrix();
+			ofTranslate(0, 5*verticalUnit*j);
+			theSensors.at(i*3+j).draw(verticalUnit*4);
+			ofPopMatrix();
+		}
+		ofPopMatrix();
+	}
 }
 
 //--------------------------------------------------------------
