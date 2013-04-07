@@ -20,7 +20,7 @@ void setup() {
 }
 
 void draw() {
-  background(20,30,20);
+  background(20, 30, 20);
 
   for (int j=0; j<2; j++) {
     pushMatrix();
@@ -58,18 +58,18 @@ int getY(int val) {
 void drawGraphLine(int[] vs) {
   strokeWeight(2);
   for (int x=1; x<graphDim.x; x++) {
-    line(graphDim.x-x, getY(vs[x-1]), graphDim.x-1-x, getY(vs[x]));
+    line(x-1, getY(vs[x-1]), x, getY(vs[x]));
   }
 }
 
 void drawGraphShape(int[] vs) {
   strokeWeight(2);
   beginShape();
-  vertex(graphDim.x,getY(0));
+  vertex(0, getY(0));
   for (int x=0; x<graphDim.x; x++) {
-    vertex(graphDim.x-x, getY(vs[x]));
+    vertex(x, getY(vs[x]));
   }
-  vertex(0,getY(0));
+  vertex(graphDim.x, getY(0));
   endShape(CLOSE);
 }
 
