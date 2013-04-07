@@ -23,6 +23,7 @@
 		AF06C32C1710230300CC0018 /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AF06C29A1710230100CC0018 /* tinyxmlerror.cpp */; };
 		AF06C32D1710230300CC0018 /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AF06C29B1710230100CC0018 /* tinyxmlparser.cpp */; };
 		AF06C32E1710230300CC0018 /* ofxXmlSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AF06C29D1710230100CC0018 /* ofxXmlSettings.cpp */; };
+		AF362C2017110BB200370E52 /* PulsumOsc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AF362C1E17110BB200370E52 /* PulsumOsc.cpp */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
@@ -151,10 +152,9 @@
 		AF06C29D1710230100CC0018 /* ofxXmlSettings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxXmlSettings.cpp; sourceTree = "<group>"; };
 		AF06C29E1710230100CC0018 /* ofxXmlSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxXmlSettings.h; sourceTree = "<group>"; };
 		AF06C36D1710259C00CC0018 /* arduino2oscDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = arduino2oscDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF362C1E17110BB200370E52 /* PulsumOsc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PulsumOsc.cpp; sourceTree = "<group>"; };
+		AF362C1F17110BB200370E52 /* PulsumOsc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PulsumOsc.h; sourceTree = "<group>"; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
-		DD7466D515744E6600074979 /* Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Controller.h; sourceTree = "<group>"; };
-		DD7466D715744E6600074979 /* gui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gui.h; sourceTree = "<group>"; };
-		DD7466D815744E6600074979 /* sistema.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sistema.h; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
 		E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
@@ -451,9 +451,8 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				DD7466D515744E6600074979 /* Controller.h */,
-				DD7466D715744E6600074979 /* gui.h */,
-				DD7466D815744E6600074979 /* sistema.h */,
+				AF362C1E17110BB200370E52 /* PulsumOsc.cpp */,
+				AF362C1F17110BB200370E52 /* PulsumOsc.h */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 			);
 			path = src;
@@ -569,6 +568,7 @@
 				AF06C32C1710230300CC0018 /* tinyxmlerror.cpp in Sources */,
 				AF06C32D1710230300CC0018 /* tinyxmlparser.cpp in Sources */,
 				AF06C32E1710230300CC0018 /* ofxXmlSettings.cpp in Sources */,
+				AF362C2017110BB200370E52 /* PulsumOsc.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
