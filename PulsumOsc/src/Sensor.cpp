@@ -79,8 +79,14 @@ void Sensor::draw(ofVec2f dimensions){
 	ofTranslate(0,dimensions.y/2);
 
 	// time running
+	int now = ofGetElapsedTimeMillis()/1000;
+	int hours = now/3600;
+	int minutes = (now%3600)/60;
+	int seconds = (now%60);
+
 	ss.str("");
-	ss << "Lectura de " << 123123;
+	ss << "Lectura de " << setfill('0') << setw(2) << hours << ":";
+	ss << setfill('0') << setw(2) << minutes << ":" << setfill('0') << setw(2)<< seconds;
 	mFont.drawString(ss.str(), 0, mFont.getLineHeight());
 	ofPopMatrix();
 	ofPopMatrix();
