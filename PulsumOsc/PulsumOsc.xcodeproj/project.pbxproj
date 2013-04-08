@@ -156,7 +156,7 @@
 		AF362C1F17110BB200370E52 /* PulsumOsc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PulsumOsc.h; sourceTree = "<group>"; };
 		AF362C4717114BD400370E52 /* Sensor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sensor.cpp; sourceTree = "<group>"; };
 		AF362C4817114BD400370E52 /* Sensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sensor.h; sourceTree = "<group>"; };
-		AF3A5A4417124A8600377F42 /* PulsumOsc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = PulsumOsc.app; path = "/Users/thiago/Dev/openFrameworks/apps/Pulsum-Plantae/PulsumOsc/bin/PulsumOsc.app"; sourceTree = "<absolute>"; };
+		AFA9C32F171359E100494A56 /* PulsumOsc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = PulsumOsc.app; path = "/Users/thiago/Dev/openFrameworks/apps/Pulsum-Plantae/PulsumOsc/bin/PulsumOsc.app"; sourceTree = "<absolute>"; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
@@ -490,7 +490,7 @@
 			);
 			name = PulsumOsc;
 			productName = myOFApp;
-			productReference = AF3A5A4417124A8600377F42 /* PulsumOsc.app */;
+			productReference = AFA9C32F171359E100494A56 /* PulsumOsc.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -737,7 +737,7 @@
 				OSC_IP_HEADERS = "\"$(OF_PATH)/addons/ofxOsc/libs/oscpack/src\"";
 				PREBINDING = NO;
 				PRODUCT_NAME = PulsumOscDebug;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx10.8;
 				USER_HEADER_SEARCH_PATHS = "$(OF_CORE_HEADERS) $(OSC_IP_HEADERS)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -835,7 +835,7 @@
 				OSC_IP_HEADERS = "\"$(OF_PATH)/addons/ofxOsc/libs/oscpack/src\"";
 				PREBINDING = NO;
 				PRODUCT_NAME = PulsumOsc;
-				SDKROOT = macosx10.6;
+				SDKROOT = macosx10.8;
 				USER_HEADER_SEARCH_PATHS = "$(OF_CORE_HEADERS) $(OSC_IP_HEADERS)";
 				WRAPPER_EXTENSION = app;
 			};
