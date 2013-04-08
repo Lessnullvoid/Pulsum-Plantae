@@ -23,7 +23,7 @@ Sensor::Sensor(){
 
 Sensor::~Sensor(){}
 
-void Sensor::addValue(unsigned short val){
+void Sensor::addValue(const unsigned short val){
 	// write value
 	sensorValues[end] = val;
 
@@ -62,7 +62,7 @@ void Sensor::addValue(unsigned short val){
 	}
 }
 
-void Sensor::draw(ofVec2f dimensions){
+void Sensor::draw(const ofVec2f dimensions){
 	// background rectangle
 	ofFill();
 	ofSetColor(100);
@@ -108,7 +108,7 @@ void Sensor::draw(ofVec2f dimensions){
 	ofPopMatrix();
 }
 
-void Sensor::drawShortTermGraph(float width, float height){
+void Sensor::drawShortTermGraph(const float width, const float height) const{
 	ofFill();
 	int x = 0;
 	ofBeginShape();
