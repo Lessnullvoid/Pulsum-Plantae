@@ -23,6 +23,19 @@ Sensor::Sensor(){
 
 Sensor::~Sensor(){}
 
+const unsigned short Sensor::getMin() const{
+	return minValue;
+}
+const unsigned short Sensor::getMax() const{
+	return maxValue;
+}
+const unsigned short Sensor::getValue() const{
+	// last written value is at end-1
+	// make sure index is positive
+	int getFromIndex = (end > 0)?(end-1):(sizeOf(sensorValues)-1);
+	return sensorValues[getFromIndex];
+}
+
 void Sensor::addValue(const unsigned short val){
 	// write value
 	sensorValues[end] = val;

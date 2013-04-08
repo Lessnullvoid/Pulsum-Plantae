@@ -13,6 +13,9 @@ public:
 	~Sensor();
 	void addValue(const unsigned short val);
 	void draw(const ofVec2f dimensions);
+	const unsigned short getMin() const;
+	const unsigned short getMax() const;
+	const unsigned short getValue() const;
 	
 private:
 	void drawShortTermGraph(const float width, const float height) const;
