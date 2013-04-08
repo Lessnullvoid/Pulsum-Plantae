@@ -71,7 +71,8 @@ void Sensor::addValue(const unsigned short val){
 		minValue = thisMinValue;
 	}
 	else{
-		minValue = (unsigned short)(0.99*minValue + 0.01*thisMinValue);
+		minValue += (unsigned short)(0.01*thisMinValue);
+		minValue = (thisMinValue<minValue)?thisMinValue:minValue;
 	}
 }
 
