@@ -1,0 +1,236 @@
+<BANK>
+    <PRESET>
+        <ADDRESS>osc0</ADDRESS>
+        <ADDRESS>osc1</ADDRESS>
+        <ADDRESS>osc2</ADDRESS>
+        <ADDRESS>osc3</ADDRESS>
+        <ADDRESS>osc4</ADDRESS>
+        <ADDRESS>osc5</ADDRESS>
+    </PRESET>
+    <PRESET>
+        <ADDRESS>osc0</ADDRESS>
+        <ADDRESS>osc1</ADDRESS>
+        <ADDRESS>osc2</ADDRESS>
+        <ADDRESS>osc3</ADDRESS>
+        <ADDRESS>osc4</ADDRESS>
+        <ADDRESS>osc5</ADDRESS>
+    </PRESET>
+    <PRESET>
+        <ADDRESS>osc0</ADDRESS>
+        <ADDRESS>osc1</ADDRESS>
+        <ADDRESS>osc2</ADDRESS>
+        <ADDRESS>osc3</ADDRESS>
+        <ADDRESS>osc4</ADDRESS>
+        <ADDRESS>osc5</ADDRESS>
+    </PRESET>
+    <PRESET>
+        <ADDRESS>osc0</ADDRESS>
+        <ADDRESS>osc1</ADDRESS>
+        <ADDRESS>osc2</ADDRESS>
+        <ADDRESS>osc3</ADDRESS>
+        <ADDRESS>osc4</ADDRESS>
+        <ADDRESS>osc5</ADDRESS>
+    </PRESET>
+    <PRESET>
+        <ADDRESS>osc0</ADDRESS>
+        <ADDRESS>osc1</ADDRESS>
+        <ADDRESS>osc2</ADDRESS>
+        <ADDRESS>osc3</ADDRESS>
+        <ADDRESS>osc4</ADDRESS>
+        <ADDRESS>osc5</ADDRESS>
+    </PRESET>
+</BANK>
+<RANGES>
+    <RANGE>
+        <MIN>15.1556</MIN>
+        <MAX>954.8</MAX>
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+    </RANGE>
+    <RANGE>
+        <MIN>121.244</MIN>
+        <MAX>795.666</MAX>
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+    </RANGE>
+    <RANGE>
+        <MIN>90.9333</MIN>
+        <MAX>780.511</MAX>
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+    </RANGE>
+    <RANGE>
+        <MIN>53.0444</MIN>
+        <MAX>833.555</MAX>
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+    </RANGE>
+    <RANGE>
+        <MIN>22.733</MIN>
+        <MAX>1023</MAX>
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+    </RANGE>
+    <RANGE>
+        <MIN>0</MIN>
+        <MAX>1023</MAX>
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+        <MIN />
+        <MAX />
+    </RANGE>
+</RANGES>
