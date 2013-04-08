@@ -2,7 +2,12 @@
 
 #include "ofMain.h"
 #include "ofxUI.h"
+#include "ofxOsc.h"
 #include "Sensor.h"
+
+#define OSC_OUT_HOST "localhost"
+#define OSC_OUT_PORT 8888
+#define OSC_PERIOD 100
 
 class PulsumOsc : public ofBaseApp{
 	
@@ -36,5 +41,7 @@ public:
 	ofVec2f sensorGraphSize;
 
 	ofSerial mSerial;
+	ofxOscSender mOscSender;
+	unsigned long long lastOscTime;
 	vector<Sensor> theSensors;
 };

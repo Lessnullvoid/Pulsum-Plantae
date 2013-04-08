@@ -35,7 +35,11 @@ void PulsumOsc::setup(){
 	mGui.setPosition(horizontalUnit, verticalUnit);
 	ofAddListener(mGui.newGUIEvent,this,&PulsumOsc::guiListener);
 	
-	////////////////
+	//////////////// start osc
+	mOscSender.setup(OSC_OUT_HOST, OSC_OUT_PORT);
+	lastOscTime = ofGetElapsedTimeMillis();
+	
+	//////////////// init some variables
 	bUpdateSerialList = true;
 	for(int i=0; i<6;i++){
 		theSensors.push_back(Sensor());
@@ -66,6 +70,29 @@ void PulsumOsc::update(){
 			//cout << "val["<< pinNumber << "] = " << value << endl;
 			theSensors.at(pinNumber).addValue(value);
 		}
+	}
+	
+	// send osc
+	if(ofGetElapsedTimeMillis()-lastOscTime > OSC_PERIOD){
+		for(int i=0; i<theSensors.size(); ++i){
+			string addPat = "/pulsum/"+ofToString(i)+"/";
+			ofxOscMessage mOscMessage;
+			// min
+			mOscMessage.setAddress(addPat+"min");
+			mOscMessage.addFloatArg((float)theSensors.at(i).getMin());
+			mOscSender.sendMessage(mOscMessage);
+			// max
+			mOscMessage.clear();
+			mOscMessage.setAddress(addPat+"max");
+			mOscMessage.addFloatArg((float)theSensors.at(i).getMax());
+			mOscSender.sendMessage(mOscMessage);
+			// val
+			mOscMessage.clear();
+			mOscMessage.setAddress(addPat+"val");
+			mOscMessage.addFloatArg((float)theSensors.at(i).getValue());
+			mOscSender.sendMessage(mOscMessage);
+		}
+		lastOscTime = ofGetElapsedTimeMillis();
 	}
 }
 
