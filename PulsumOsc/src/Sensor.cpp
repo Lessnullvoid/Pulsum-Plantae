@@ -101,4 +101,3 @@ void Sensor::drawShortTermGraph(float height){
 	ofSetColor(255);
 	ofEndShape();
 }
-
