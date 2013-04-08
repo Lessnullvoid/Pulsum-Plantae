@@ -11,11 +11,14 @@ class Sensor {
 public:
 	Sensor();
 	~Sensor();
-	void addValue(unsigned short val);
-	void draw(float height);
+	void addValue(const unsigned short val);
+	void draw(const ofVec2f dimensions);
+	const unsigned short getMin() const;
+	const unsigned short getMax() const;
+	const unsigned short getValue() const;
 	
 private:
-	void drawShortTermGraph(float height);
+	void drawShortTermGraph(const float width, const float height) const;
 	
 	unsigned short sensorValues[LONG_TERM+1];
 	// using vectors to keep track of begin/end indices
