@@ -21,8 +21,8 @@ void PulsumOsc::setup(){
 
 	// grids for drawing objects
 	verticalUnit = ofGetHeight()/18;
-	horizontalUnit = ofGetWidth()/24;
-	sensorGraphSize = ofVec2f(horizontalUnit*6,verticalUnit*4);
+	horizontalUnit = ofGetWidth()/25;
+	sensorGraphSize = ofVec2f(horizontalUnit*12,verticalUnit*4);
 	
 	//////////////// the serial GUI
 	mGui.setFont("verdana.ttf");
@@ -78,7 +78,7 @@ void PulsumOsc::draw(){
 	
 	for(int i=0; i<2; i++){
 		ofPushMatrix();
-		ofTranslate(7*horizontalUnit*i+horizontalUnit,3*verticalUnit);
+		ofTranslate(12*horizontalUnit*i+horizontalUnit,3*verticalUnit);
 		for(int j=0; j<3;j++){
 			ofPushMatrix();
 			ofTranslate(0, 5*verticalUnit*j);

@@ -50,22 +50,39 @@ void Sensor::draw(ofVec2f dimensions){
 	// background rectangle
 	ofFill();
 	ofSetColor(100);
-	ofRect(0,0,dimensions.x,dimensions.y);
+	ofRect(0,0,dimensions.x*11/12,dimensions.y);
 
 	// sensor title
 	ofSetColor(255);
 	mFont.drawString(name,10,mFont.getLineHeight());
-	
+
 	// graph
 	ofPushMatrix();
 	ofTranslate(0,dimensions.y/4);
-	drawShortTermGraph(dimensions.x, dimensions.y/2);
+	drawShortTermGraph(dimensions.x/2, dimensions.y/2);
 	ofTranslate(0,dimensions.y/2);
-	
+
 	// min/max
 	stringstream ss;
 	ss << "min: " << minValue << "  " << "max: " << maxValue;
 	mFont.drawString(ss.str(), 0, mFont.getLineHeight());
+	ofPopMatrix();
+
+	// second column
+	ofPushMatrix();
+	ofTranslate(dimensions.x/2+10, 0);
+
+	// graph
+	ofPushMatrix();
+	ofTranslate(0,dimensions.y/4);
+	drawShortTermGraph(dimensions.x*5/12-10, dimensions.y/2);
+	ofTranslate(0,dimensions.y/2);
+
+	// time running
+	ss.str("");
+	ss << "Lectura de " << 123123;
+	mFont.drawString(ss.str(), 0, mFont.getLineHeight());
+	ofPopMatrix();
 	ofPopMatrix();
 }
 
