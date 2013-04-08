@@ -154,9 +154,9 @@
 		AF06C29E1710230100CC0018 /* ofxXmlSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxXmlSettings.h; sourceTree = "<group>"; };
 		AF362C1E17110BB200370E52 /* PulsumOsc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PulsumOsc.cpp; sourceTree = "<group>"; };
 		AF362C1F17110BB200370E52 /* PulsumOsc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PulsumOsc.h; sourceTree = "<group>"; };
-		AF362C441711476500370E52 /* PulsumOsc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = PulsumOsc.app; path = "/Users/thiago/Dev/openFrameworks/apps/Pulsum-Plantae/PulsumOsc/bin/PulsumOsc.app"; sourceTree = "<absolute>"; };
 		AF362C4717114BD400370E52 /* Sensor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sensor.cpp; sourceTree = "<group>"; };
 		AF362C4817114BD400370E52 /* Sensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sensor.h; sourceTree = "<group>"; };
+		AF3A5A4417124A8600377F42 /* PulsumOsc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = PulsumOsc.app; path = "/Users/thiago/Dev/openFrameworks/apps/Pulsum-Plantae/PulsumOsc/bin/PulsumOsc.app"; sourceTree = "<absolute>"; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
@@ -490,7 +490,7 @@
 			);
 			name = PulsumOsc;
 			productName = myOFApp;
-			productReference = AF362C441711476500370E52 /* PulsumOsc.app */;
+			productReference = AF3A5A4417124A8600377F42 /* PulsumOsc.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
