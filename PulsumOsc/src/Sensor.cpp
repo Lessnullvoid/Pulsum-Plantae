@@ -33,16 +33,32 @@ void Sensor::addValue(unsigned short val){
 	longBegin = (longBegin+1)%sizeOf(sensorValues);
 	end = (end+1)%sizeOf(sensorValues);
 
-	// find min/max on shortTerm
-	minValue = 0xffff;
-	maxValue = 0;
+	// find min/max on current samples
+	unsigned short thisMinValue = 0xffff;
+	unsigned short thisMaxValue = 0;
 	for(unsigned int i=shortBegin; i!=end; i=(i+1)%sizeOf(sensorValues)){
-		if(sensorValues[i] > maxValue){
-			maxValue = sensorValues[i];
+		if(sensorValues[i] > thisMaxValue){
+			thisMaxValue = sensorValues[i];
 		}
-		if(sensorValues[i] < minValue){
-			minValue = sensorValues[i];
+		if(sensorValues[i] < thisMinValue){
+			thisMinValue = sensorValues[i];
 		}
+	}
+	
+	// if there's a new min/max, update immediately
+	//    else, slowly approach current min/max
+	if(thisMaxValue > maxValue){
+		maxValue = thisMaxValue;
+	}
+	else{
+		maxValue = (unsigned short)(0.99*maxValue + 0.01*thisMaxValue);
+	}
+	
+	if(thisMinValue < minValue){
+		minValue = thisMinValue;
+	}
+	else{
+		minValue = (unsigned short)(0.99*minValue + 0.01*thisMinValue);
 	}
 }
 
