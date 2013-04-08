@@ -19,17 +19,20 @@ void PulsumOsc::setup(){
 	ofEnableAlphaBlending();
 	ofEnableSmoothing();
 
+	// grids for drawing objects
 	verticalUnit = ofGetHeight()/18;
+	horizontalUnit = ofGetWidth()/24;
+	sensorGraphSize = ofVec2f(horizontalUnit*6,verticalUnit*4);
 	
 	//////////////// the serial GUI
 	mGui.setFont("verdana.ttf");
 	////// Serial Port list
-	guiSerialList = (ofxUIDropDownList*) mGui.addWidgetDown(new ofxUIDropDownList(0, 0, 300, "Serial List", theSerialList,0));
+	guiSerialList = (ofxUIDropDownList*) mGui.addWidgetDown(new ofxUIDropDownList(0, 0, horizontalUnit*6, "Serial List", theSerialList,0));
 	guiSerialList->setAutoClose(true);
 	
 	mGui.autoSizeToFitWidgets();
 	mGui.setColorBack(ofColor(100,200));
-	mGui.setPosition(90, verticalUnit);
+	mGui.setPosition(horizontalUnit, verticalUnit);
 	ofAddListener(mGui.newGUIEvent,this,&PulsumOsc::guiListener);
 	
 	////////////////
@@ -75,11 +78,11 @@ void PulsumOsc::draw(){
 	
 	for(int i=0; i<2; i++){
 		ofPushMatrix();
-		ofTranslate(390*i+90,3*verticalUnit);
+		ofTranslate(7*horizontalUnit*i+horizontalUnit,3*verticalUnit);
 		for(int j=0; j<3;j++){
 			ofPushMatrix();
 			ofTranslate(0, 5*verticalUnit*j);
-			theSensors.at(i*3+j).draw(verticalUnit*4);
+			theSensors.at(i*3+j).draw(sensorGraphSize);
 			ofPopMatrix();
 		}
 		ofPopMatrix();

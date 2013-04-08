@@ -32,7 +32,8 @@ public:
 
 	ofxUICanvas mGui;
 	void guiListener(ofxUIEventArgs &args);
-	float verticalUnit;
+	float verticalUnit, horizontalUnit;
+	ofVec2f sensorGraphSize;
 
 	ofSerial mSerial;
 	vector<Sensor> theSensors;

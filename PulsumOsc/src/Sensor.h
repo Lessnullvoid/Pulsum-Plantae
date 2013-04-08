@@ -12,10 +12,10 @@ public:
 	Sensor();
 	~Sensor();
 	void addValue(unsigned short val);
-	void draw(float height);
+	void draw(ofVec2f dimensions);
 	
 private:
-	void drawShortTermGraph(float height);
+	void drawShortTermGraph(float width, float height);
 	
 	unsigned short sensorValues[LONG_TERM+1];
 	// using vectors to keep track of begin/end indices

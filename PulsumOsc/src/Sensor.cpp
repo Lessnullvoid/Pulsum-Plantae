@@ -46,11 +46,11 @@ void Sensor::addValue(unsigned short val){
 	}
 }
 
-void Sensor::draw(float height){
+void Sensor::draw(ofVec2f dimensions){
 	// background rectangle
 	ofFill();
 	ofSetColor(100);
-	ofRect(0,0,300,height);
+	ofRect(0,0,dimensions.x,dimensions.y);
 
 	// sensor title
 	ofSetColor(255);
@@ -58,9 +58,9 @@ void Sensor::draw(float height){
 	
 	// graph
 	ofPushMatrix();
-	ofTranslate(0,height/4);
-	drawShortTermGraph(height/2);
-	ofTranslate(0,height/2);
+	ofTranslate(0,dimensions.y/4);
+	drawShortTermGraph(dimensions.x, dimensions.y/2);
+	ofTranslate(0,dimensions.y/2);
 	
 	// min/max
 	stringstream ss;
@@ -69,20 +69,34 @@ void Sensor::draw(float height){
 	ofPopMatrix();
 }
 
-void Sensor::drawShortTermGraph(float height){
+void Sensor::drawShortTermGraph(float width, float height){
 	ofFill();
 	int x = 0;
 	ofBeginShape();
 	ofVertex(x,height);
-	for(unsigned int i=shortBegin; i!=end; i=(i+1)%sizeOf(sensorValues)){
-		unsigned short y0 = ofMap(sensorValues[i], 1023, 0, 0,height);
+	
+	// slide the begining index depending on graph width
+	int firstIndex = shortBegin;
+	if(width < SHORT_TERM){
+		// grab less samples by moving start point forward
+		firstIndex = (firstIndex+(int)(SHORT_TERM-width))%sizeOf(sensorValues);
+	}
+	else {
+		// grab more earlier samples by moving start point back
+		firstIndex = (firstIndex-(int)(width-SHORT_TERM))%sizeOf(sensorValues);
+		// watch out for wrap-around
+		firstIndex = (firstIndex<0)?(sizeOf(sensorValues)-firstIndex):firstIndex;
+	}
+	
+	for(unsigned int i=firstIndex; i!=end; i=(i+1)%sizeOf(sensorValues)){
+		unsigned short y0 = ofMap(sensorValues[i], 1023, 0, 0, height);
 		ofVertex(x, y0);
 		x++;
 	}
 	ofVertex(x-1, height);
 	// background rectangle
 	ofSetColor(90);
-	ofRect(0,0,x-1, height);
+	ofRect(0,0,width, height);
 	ofSetColor(255);
 	ofEndShape();
 	
@@ -92,8 +106,8 @@ void Sensor::drawShortTermGraph(float height){
 	x = 0;
 	ofBeginShape();
 	ofVertex(x,height);
-	for(unsigned int i=shortBegin; i!=end; i=(i+1)%sizeOf(sensorValues)){
-		unsigned short y0 = ofMap(sensorValues[i], 1023, 0, 0,height);
+	for(unsigned int i=firstIndex; i!=end; i=(i+1)%sizeOf(sensorValues)){
+		unsigned short y0 = ofMap(sensorValues[i], 1023, 0, 0, height);
 		ofVertex(x, y0);
 		x++;
 	}
