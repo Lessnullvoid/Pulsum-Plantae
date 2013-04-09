@@ -123,10 +123,10 @@ void Sensor::draw(const ofVec2f dimensions){
 }
 
 void Sensor::drawShortTermGraph(const float width, const float height) const{
+	// background rectangle
 	ofFill();
-	int x = 0;
-	ofBeginShape();
-	ofVertex(x,height);
+	ofSetColor(90);
+	ofRect(0,0,width, height);
 	
 	// slide the begining index depending on graph width
 	int firstIndex = shortBegin;
@@ -136,35 +136,35 @@ void Sensor::drawShortTermGraph(const float width, const float height) const{
 	}
 	else {
 		// grab more earlier samples by moving start point back
-		firstIndex = (firstIndex-(int)(width-SHORT_TERM))%sizeOf(sensorValues);
-		// watch out for wrap-around
-		firstIndex = (firstIndex<0)?(sizeOf(sensorValues)-firstIndex):firstIndex;
+		firstIndex = firstIndex-(int)(width-SHORT_TERM);
+		// watch out for negative wrap-around
+		while(firstIndex<0){
+			firstIndex += sizeOf(sensorValues);
+		}
+		// watch out for positive wrap-around
+		firstIndex = firstIndex%sizeOf(sensorValues);
 	}
-	
-	for(unsigned int i=firstIndex; i!=end; i=(i+1)%sizeOf(sensorValues)){
+
+	ofSetColor(255);
+	ofBeginShape();
+	ofVertex(0,height);
+	for(unsigned int i=firstIndex, x=0; i!=end; i=(i+1)%sizeOf(sensorValues), ++x){
 		unsigned short y0 = ofMap(sensorValues[i], 1023, 0, 0, height);
 		ofVertex(x, y0);
-		x++;
 	}
-	ofVertex(x-1, height);
-	// background rectangle
-	ofSetColor(90);
-	ofRect(0,0,width, height);
-	ofSetColor(255);
+	ofVertex(width, height);
 	ofEndShape();
 	
 	// for smoothing
 	ofNoFill();
 	ofSetLineWidth(2);
-	x = 0;
+	ofSetColor(255);
 	ofBeginShape();
-	ofVertex(x,height);
-	for(unsigned int i=firstIndex; i!=end; i=(i+1)%sizeOf(sensorValues)){
+	ofVertex(0,height);
+	for(unsigned int i=firstIndex, x=0; i!=end; i=(i+1)%sizeOf(sensorValues), ++x){
 		unsigned short y0 = ofMap(sensorValues[i], 1023, 0, 0, height);
 		ofVertex(x, y0);
-		x++;
 	}
-	ofVertex(x-1, height);
-	ofSetColor(255);
+	ofVertex(width, height);
 	ofEndShape();
 }
