@@ -1,6 +1,6 @@
 #include "Sensor.h"
 
-Sensor::Sensor(){
+Sensor::Sensor(string name_){
 	// initial end index
 	//   "end" points to one after the last value in range
 	end = LONG_TERM;
@@ -17,7 +17,7 @@ Sensor::Sensor(){
 	minValue = 0xffff;
 	maxValue = 0;
 	
-	name = "test";
+	name = name_;
 	mFont.loadFont("verdana.ttf",16);
 }
 

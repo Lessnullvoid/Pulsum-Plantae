@@ -9,7 +9,7 @@
 class Sensor {
 	
 public:
-	Sensor();
+	Sensor(string name_);
 	~Sensor();
 	void addValue(const unsigned short val);
 	void draw(const ofVec2f dimensions);

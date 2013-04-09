@@ -42,7 +42,7 @@ void PulsumOsc::setup(){
 	//////////////// init some variables
 	bUpdateSerialList = true;
 	for(int i=0; i<6;i++){
-		theSensors.push_back(Sensor());
+		theSensors.push_back(Sensor("sensor "+ofToString(i)));
 	}
 }
 
