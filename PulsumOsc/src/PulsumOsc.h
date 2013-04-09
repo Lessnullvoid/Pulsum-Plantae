@@ -12,10 +12,10 @@
 ///////////////////////////////
 //// TODO:
 ////	- figure out long term graph
-////	- add names to sensors (maybe)
 ////	- figure out video interaction
 ////	- test/adjust min/max stuff with Leslie
-////	- there's a bug on shortTerm graph when it hits the left most edge
+////    - figure out osc stuff with Leslie
+////	- there's a bug on shortTerm graph when real values first hit the left most edge
 
 class PulsumOsc : public ofBaseApp{
 	
