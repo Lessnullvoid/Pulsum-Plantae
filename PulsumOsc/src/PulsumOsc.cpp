@@ -75,7 +75,7 @@ void PulsumOsc::update(){
 	// send osc
 	if(ofGetElapsedTimeMillis()-lastOscTime > OSC_PERIOD){
 		for(int i=0; i<theSensors.size(); ++i){
-			string addPat = "/pulsum/"+ofToString(i)+"/";
+			string addPat = "/osc"+ofToString(i)+"/";
 			ofxOscMessage mOscMessage;
 			// min
 			mOscMessage.setAddress(addPat+"min");
@@ -86,9 +86,14 @@ void PulsumOsc::update(){
 			mOscMessage.setAddress(addPat+"max");
 			mOscMessage.addFloatArg((float)theSensors.at(i).getMax());
 			mOscSender.sendMessage(mOscMessage);
-			// val
+			// filtered value
 			mOscMessage.clear();
-			mOscMessage.setAddress(addPat+"val");
+			mOscMessage.setAddress(addPat+"filtrado");
+			mOscMessage.addFloatArg((float)theSensors.at(i).getValue());
+			mOscSender.sendMessage(mOscMessage);
+			// raw value
+			mOscMessage.clear();
+			mOscMessage.setAddress(addPat+"crudo");
 			mOscMessage.addFloatArg((float)theSensors.at(i).getValue());
 			mOscSender.sendMessage(mOscMessage);
 		}
