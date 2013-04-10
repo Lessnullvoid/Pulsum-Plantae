@@ -7,7 +7,7 @@
 #include "VideoManager.h"
 
 #define OSC_OUT_HOST "localhost"
-#define OSC_OUT_PORT 8888
+#define OSC_OUT_PORT 8001
 #define OSC_PERIOD 100
 
 ///////////////////////////////
