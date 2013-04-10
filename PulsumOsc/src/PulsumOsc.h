@@ -11,10 +11,12 @@
 
 ///////////////////////////////
 //// TODO:
-////	- figure out long term graph
+////	- receive raw values, calculate average
+////	- display raw and averaged values
 ////	- figure out video interaction
 ////	- figure out min/max stuff with Leslie
-////    - figure out osc stuff with Leslie
+////	- figure out osc stuff with Leslie
+////	- write xml
 
 class PulsumOsc : public ofBaseApp{
 	
