@@ -11,8 +11,6 @@
 
 ///////////////////////////////
 //// TODO:
-////	- TEST! receiving of raw values and average calculation
-////	- TEST! the new graph displays
 ////	- figure out video interaction
 ////	- figure out min/max stuff with Leslie
 ////	- figure out osc stuff with Leslie
