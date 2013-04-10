@@ -1,75 +1,46 @@
-#define AVGSIZE 20
+// number of analog pins to read
 #define NUMPINS 6
 
 // read at most 100 times a second
 #define READPERIOD 10
 
-// write at most 10 times a second
-#define WRITEPERIOD 100
+// a header for outgoing serial messages
+#define MSGHEADER 0xAB
 
-int values[NUMPINS][AVGSIZE];
-int sum[NUMPINS];
-int index[NUMPINS];
+byte serialMsg[3];
 int whichPin;
-
-unsigned long lastRead, lastWrite;
+unsigned long lastReadWrite;
 
 void setup() {
   Serial.begin(57600);
+  serialMsg[0] = serialMsg[1] = serialMsg[2] = 0x00;
   whichPin = 0;
-  lastRead = lastWrite = millis();
-
-  // set all values, sums and indexes to 0
-  for(int i=0; i<NUMPINS; i++) {
-    for(int j=0; j<AVGSIZE; j++) {
-      values[i][j] = 0;
-    }
-    sum[i] = 0;
-    index[i] = 0;
-  }
+  lastReadWrite = millis();
 }
 
 void loop() {
-  unsigned long timeNow = millis();
-
   // don't read pins more frequent than 100 times per second
   // and only read one pin per loop to avoid noise
-  if(timeNow-lastRead > READPERIOD){
-    int newValue = analogRead(whichPin);
+  if(millis()-lastReadWrite > READPERIOD){
+    short readValue = analogRead(whichPin);
 
-    // replace value at current index
-    sum[whichPin] -= values[whichPin][index[whichPin]];
-    values[whichPin][index[whichPin]] = newValue;
-    sum[whichPin] += values[whichPin][index[whichPin]];
-    // update index for this pin
-    index[whichPin] = (index[whichPin]+1)%AVGSIZE;
-
-    whichPin = (whichPin+1)%NUMPINS;
-    lastRead = timeNow;
-  }
-
-  if(timeNow-lastWrite > WRITEPERIOD){
     // send 3 bytes per value: HHHH_HHHH AAAA_VVVV VVVV_VVVV
     // where HHHH_HHHH = 8-bit fixed header
     //       AAAA = which pin [0,15]
     //       VVVV VVVV_VVVV = 12 bits of data [0,4095]
 
-    byte msg[3];
-    byte header = 0xAB;
-    for(int i=0; i<NUMPINS; i++) {
-      int avg = sum[i]/AVGSIZE;
+    serialMsg[0] = (MSGHEADER&0xFF);
+    serialMsg[1] = ((whichPin<<4)&0xF0) | ((readValue>>8)&0x0F);
+    serialMsg[2] = (readValue&0xFF);
 
-      msg[0] = (header&0xFF);
-      msg[1] = ((i<<4)&0xF0) | ((avg>>8)&0x0F);
-      msg[2] = (avg&0xFF);
+    Serial.write(serialMsg[0]);
+    Serial.write(serialMsg[1]);
+    Serial.write(serialMsg[2]);
 
-      Serial.write(msg[0]);
-      Serial.write(msg[1]);
-      Serial.write(msg[2]);
-    }
     Serial.flush();
+    whichPin = (whichPin+1)%NUMPINS;
     // use millis() because flush could take longer
-    lastWrite = millis();
+    lastReadWrite = millis();
   }
 }
 

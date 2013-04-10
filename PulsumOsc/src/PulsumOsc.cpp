@@ -23,6 +23,7 @@ void PulsumOsc::setup(){
 	verticalUnit = ofGetHeight()/18;
 	horizontalUnit = ofGetWidth()/25;
 	sensorGraphSize = ofVec2f(horizontalUnit*12,verticalUnit*4);
+	videoSize = ofVec2f(ofGetWidth(), ofGetHeight());
 	
 	//////////////// the serial GUI
 	mGui.setFont("verdana.ttf");
@@ -42,7 +43,7 @@ void PulsumOsc::setup(){
 	//////////////// init some variables
 	bUpdateSerialList = true;
 	for(int i=0; i<6;i++){
-		theSensors.push_back(Sensor());
+		theSensors.push_back(Sensor("sensor "+ofToString(i)));
 	}
 }
 
@@ -75,7 +76,7 @@ void PulsumOsc::update(){
 	// send osc
 	if(ofGetElapsedTimeMillis()-lastOscTime > OSC_PERIOD){
 		for(int i=0; i<theSensors.size(); ++i){
-			string addPat = "/pulsum/"+ofToString(i)+"/";
+			string addPat = "/osc"+ofToString(i)+"/";
 			ofxOscMessage mOscMessage;
 			// min
 			mOscMessage.setAddress(addPat+"min");
@@ -86,20 +87,31 @@ void PulsumOsc::update(){
 			mOscMessage.setAddress(addPat+"max");
 			mOscMessage.addFloatArg((float)theSensors.at(i).getMax());
 			mOscSender.sendMessage(mOscMessage);
-			// val
+			// filtered value
 			mOscMessage.clear();
-			mOscMessage.setAddress(addPat+"val");
-			mOscMessage.addFloatArg((float)theSensors.at(i).getValue());
+			mOscMessage.setAddress(addPat+"filtrado");
+			mOscMessage.addFloatArg((float)theSensors.at(i).getAverageValue());
+			mOscSender.sendMessage(mOscMessage);
+			// raw value
+			mOscMessage.clear();
+			mOscMessage.setAddress(addPat+"crudo");
+			mOscMessage.addFloatArg((float)theSensors.at(i).getRawValue());
 			mOscSender.sendMessage(mOscMessage);
 		}
 		lastOscTime = ofGetElapsedTimeMillis();
 	}
+	
+	// update video
+	//mVideo.update();
 }
 
 //--------------------------------------------------------------
 void PulsumOsc::draw(){
 	ofBackground(0);
 
+	// display video
+	//mVideo.draw(videoSize);
+	
 	ofSetColor(255,255,0);
 	ofDrawBitmapString(ofToString((int) ofGetFrameRate()), 10, ofGetHeight()-20);
 	
@@ -114,6 +126,17 @@ void PulsumOsc::draw(){
 		}
 		ofPopMatrix();
 	}
+	
+	// maybe draw time somewhere
+	/*
+	 int now = ofGetElapsedTimeMillis()/1000;
+	 int hours = now/3600;
+	 int minutes = (now%3600)/60;
+	 int seconds = (now%60);
+	 stringstream ss;
+	 ss << "Lectura de " << setfill('0') << setw(2) << hours << ":";
+	 ss << setfill('0') << setw(2) << minutes << ":" << setfill('0') << setw(2)<< seconds;
+	 */
 }
 
 //--------------------------------------------------------------
