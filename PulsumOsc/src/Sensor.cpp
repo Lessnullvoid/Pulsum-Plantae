@@ -107,35 +107,20 @@ void Sensor::draw(const ofVec2f dimensions){
 	ofPushMatrix();
 	ofTranslate(0,dimensions.y/4);
 	drawGraph(rawValues, sizeOf(rawValues), rawEnd, dimensions.x/2, dimensions.y/2);
-	ofTranslate(0,dimensions.y/2);
-
-	// min/max
-	stringstream ss;
-	ss << "min: " << minValue << "  " << "max: " << maxValue;
-	mFont.drawString(ss.str(), 0, mFont.getLineHeight());
 	ofPopMatrix();
 
-	// second column
+	// second graph
 	ofPushMatrix();
-	ofTranslate(dimensions.x/2+10, 0);
-
-	// graph
-	ofPushMatrix();
-	ofTranslate(0,dimensions.y/4);
+	ofTranslate(dimensions.x/2+10, dimensions.y/4);
 	drawGraph(averageValues, sizeOf(averageValues), averageEnd, dimensions.x*5/12-10, dimensions.y/2);
-	ofTranslate(0,dimensions.y/2);
-
-	// time running
-	int now = ofGetElapsedTimeMillis()/1000;
-	int hours = now/3600;
-	int minutes = (now%3600)/60;
-	int seconds = (now%60);
-
-	ss.str("");
-	ss << "Lectura de " << setfill('0') << setw(2) << hours << ":";
-	ss << setfill('0') << setw(2) << minutes << ":" << setfill('0') << setw(2)<< seconds;
-	mFont.drawString(ss.str(), 0, mFont.getLineHeight());
 	ofPopMatrix();
+	
+	// info string
+	ofPushMatrix();
+	ofTranslate(0,dimensions.y*3/4);
+	stringstream ss;
+	ss << "current: " << getRawValue() << " min: " << minValue << " max: " << maxValue;
+	mFont.drawString(ss.str(), 0, mFont.getLineHeight());
 	ofPopMatrix();
 }
 
