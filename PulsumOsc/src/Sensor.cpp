@@ -58,6 +58,7 @@ void Sensor::addValue(const unsigned short val){
 	averageSum -= currentRunningAverage[averageIndex];
 	currentRunningAverage[averageIndex] = val;
 	averageSum += currentRunningAverage[averageIndex];
+	averageIndex = (averageIndex+1)%sizeOf(currentRunningAverage);
 	
 	// write to average values
 	averageValues[averageEnd] = averageSum/sizeOf(currentRunningAverage);
@@ -133,7 +134,7 @@ void Sensor::drawGraph(const unsigned short values[], const int sizeOfValues, co
 	ofSetColor(255);
 	ofBeginShape();
 	ofVertex(0,height);
-	for(unsigned int i=(lastIndex-width), x=0; i<lastIndex; ++i, ++x){
+	for(unsigned int x=0, i=(lastIndex-width); x<width; ++x, ++i){
 		int yIndex = i;
 		while(yIndex<0){
 			yIndex += sizeOfValues;
@@ -152,7 +153,7 @@ void Sensor::drawGraph(const unsigned short values[], const int sizeOfValues, co
 	ofSetColor(255);
 	ofBeginShape();
 	ofVertex(0,height);
-	for(unsigned int i=(lastIndex-width), x=0; i<lastIndex; ++i, ++x){
+	for(unsigned int x=0, i=(lastIndex-width); x<width; ++x, ++i){
 		int yIndex = i;
 		while(yIndex<0){
 			yIndex += sizeOfValues;
