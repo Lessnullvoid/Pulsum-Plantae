@@ -1,21 +1,26 @@
 #include "Sensor.h"
 
 Sensor::Sensor(string name_){
-	// initial end index
+	// initial end indices
 	//   "end" points to one after the last value in range
-	end = LONG_TERM;
-
-	// initial begin indices
-	shortBegin = end - SHORT_TERM;
-	mediumBegin = end - MEDIUM_TERM;
-	longBegin = end - LONG_TERM;
+	rawEnd = sizeOf(rawValues)-1;
+	averageEnd = sizeOf(averageValues)-1;
 
 	// init values
-	for(int i=0; i<sizeOf(sensorValues); ++i){
-		sensorValues[i] = 0;
+	for(int i=0; i<sizeOf(rawValues); ++i){
+		rawValues[i] = 0;
 	}
+	for(int i=0; i<sizeOf(averageValues); ++i){
+		averageValues[i] = 0;
+	}
+	for(int i=0; i<sizeOf(currentRunningAverage); ++i){
+		currentRunningAverage[i] = 0;
+	}
+	
 	minValue = 0xffff;
 	maxValue = 0;
+	averageSum = 0;
+	averageIndex = 0;
 	
 	name = name_;
 	mFont.loadFont("verdana.ttf",16);
@@ -29,32 +34,44 @@ const unsigned short Sensor::getMin() const{
 const unsigned short Sensor::getMax() const{
 	return maxValue;
 }
-const unsigned short Sensor::getValue() const{
+const unsigned short Sensor::getRawValue() const{
 	// last written value is at end-1
 	// make sure index is positive
-	int getFromIndex = (end > 0)?(end-1):(sizeOf(sensorValues)-1);
-	return sensorValues[getFromIndex];
+	int getFromIndex = (rawEnd > 0)?(rawEnd-1):(sizeOf(rawValues)-1);
+	return rawValues[getFromIndex];
+}
+const unsigned short Sensor::getAverageValue() const{
+	// last written value is at end-1
+	// make sure index is positive
+	int getFromIndex = (averageEnd > 0)?(averageEnd-1):(sizeOf(averageValues)-1);
+	return averageValues[getFromIndex];
 }
 
+
 void Sensor::addValue(const unsigned short val){
-	// write value
-	sensorValues[end] = val;
-
+	// write value to raw
+	rawValues[rawEnd] = val;
 	// update the indices
-	shortBegin = (shortBegin+1)%sizeOf(sensorValues);
-	mediumBegin	= (mediumBegin+1)%sizeOf(sensorValues);
-	longBegin = (longBegin+1)%sizeOf(sensorValues);
-	end = (end+1)%sizeOf(sensorValues);
+	rawEnd = (rawEnd+1)%sizeOf(rawValues);
+	
+	// update running average
+	averageSum -= currentRunningAverage[averageIndex];
+	currentRunningAverage[averageIndex] = val;
+	averageSum += currentRunningAverage[averageIndex];
+	
+	// write to average values
+	averageValues[averageEnd] = averageSum/sizeOf(currentRunningAverage);
+	averageEnd = (averageEnd+1)%sizeOf(averageValues);
 
-	// find min/max on current samples
+	// find min/max of current averages
 	unsigned short thisMinValue = 0xffff;
 	unsigned short thisMaxValue = 0;
-	for(unsigned int i=shortBegin; i!=end; i=(i+1)%sizeOf(sensorValues)){
-		if(sensorValues[i] > thisMaxValue){
-			thisMaxValue = sensorValues[i];
+	for(unsigned int i=0; i<sizeOf(averageValues); ++i){
+		if(averageValues[i] > thisMaxValue){
+			thisMaxValue = averageValues[i];
 		}
-		if(sensorValues[i] < thisMinValue){
-			thisMinValue = sensorValues[i];
+		if(averageValues[i] < thisMinValue){
+			thisMinValue = averageValues[i];
 		}
 	}
 	
@@ -86,10 +103,10 @@ void Sensor::draw(const ofVec2f dimensions){
 	ofSetColor(255);
 	mFont.drawString(name,10,mFont.getLineHeight());
 
-	// graph
+	// raw graph
 	ofPushMatrix();
 	ofTranslate(0,dimensions.y/4);
-	drawShortTermGraph(dimensions.x/2, dimensions.y/2);
+	drawGraph(rawValues, sizeOf(rawValues), rawEnd, dimensions.x/2, dimensions.y/2);
 	ofTranslate(0,dimensions.y/2);
 
 	// min/max
@@ -105,7 +122,7 @@ void Sensor::draw(const ofVec2f dimensions){
 	// graph
 	ofPushMatrix();
 	ofTranslate(0,dimensions.y/4);
-	drawShortTermGraph(dimensions.x*5/12-10, dimensions.y/2);
+	drawGraph(averageValues, sizeOf(averageValues), averageEnd, dimensions.x*5/12-10, dimensions.y/2);
 	ofTranslate(0,dimensions.y/2);
 
 	// time running
@@ -122,34 +139,23 @@ void Sensor::draw(const ofVec2f dimensions){
 	ofPopMatrix();
 }
 
-void Sensor::drawShortTermGraph(const float width, const float height) const{
+void Sensor::drawGraph(const unsigned short values[], const int sizeOfValues, const unsigned int lastIndex, const float width, const float height) const{
 	// background rectangle
 	ofFill();
 	ofSetColor(90);
 	ofRect(0,0,width, height);
 	
-	// slide the begining index depending on graph width
-	int firstIndex = shortBegin;
-	if(width < SHORT_TERM){
-		// grab less samples by moving start point forward
-		firstIndex = (firstIndex+(int)(SHORT_TERM-width))%sizeOf(sensorValues);
-	}
-	else {
-		// grab more earlier samples by moving start point back
-		firstIndex = firstIndex-(int)(width-SHORT_TERM);
-		// watch out for negative wrap-around
-		while(firstIndex<0){
-			firstIndex += sizeOf(sensorValues);
-		}
-		// watch out for positive wrap-around
-		firstIndex = firstIndex%sizeOf(sensorValues);
-	}
-
 	ofSetColor(255);
 	ofBeginShape();
 	ofVertex(0,height);
-	for(unsigned int i=firstIndex, x=0; i!=end; i=(i+1)%sizeOf(sensorValues), ++x){
-		unsigned short y0 = ofMap(sensorValues[i], 1023, 0, 0, height);
+	for(unsigned int i=(lastIndex-width), x=0; i<lastIndex; ++i, ++x){
+		int yIndex = i;
+		while(yIndex<0){
+			yIndex += sizeOfValues;
+		}
+		yIndex = yIndex%sizeOfValues;
+		
+		unsigned short y0 = ofMap(values[yIndex], 1023, 0, 0, height);
 		ofVertex(x, y0);
 	}
 	ofVertex(width, height);
@@ -161,8 +167,14 @@ void Sensor::drawShortTermGraph(const float width, const float height) const{
 	ofSetColor(255);
 	ofBeginShape();
 	ofVertex(0,height);
-	for(unsigned int i=firstIndex, x=0; i!=end; i=(i+1)%sizeOf(sensorValues), ++x){
-		unsigned short y0 = ofMap(sensorValues[i], 1023, 0, 0, height);
+	for(unsigned int i=(lastIndex-width), x=0; i<lastIndex; ++i, ++x){
+		int yIndex = i;
+		while(yIndex<0){
+			yIndex += sizeOfValues;
+		}
+		yIndex = yIndex%sizeOfValues;
+		
+		unsigned short y0 = ofMap(values[yIndex], 1023, 0, 0, height);
 		ofVertex(x, y0);
 	}
 	ofVertex(width, height);

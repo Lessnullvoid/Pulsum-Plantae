@@ -89,12 +89,12 @@ void PulsumOsc::update(){
 			// filtered value
 			mOscMessage.clear();
 			mOscMessage.setAddress(addPat+"filtrado");
-			mOscMessage.addFloatArg((float)theSensors.at(i).getValue());
+			mOscMessage.addFloatArg((float)theSensors.at(i).getAverageValue());
 			mOscSender.sendMessage(mOscMessage);
 			// raw value
 			mOscMessage.clear();
 			mOscMessage.setAddress(addPat+"crudo");
-			mOscMessage.addFloatArg((float)theSensors.at(i).getValue());
+			mOscMessage.addFloatArg((float)theSensors.at(i).getRawValue());
 			mOscSender.sendMessage(mOscMessage);
 		}
 		lastOscTime = ofGetElapsedTimeMillis();
