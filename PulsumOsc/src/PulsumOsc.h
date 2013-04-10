@@ -4,6 +4,7 @@
 #include "ofxUI.h"
 #include "ofxOsc.h"
 #include "Sensor.h"
+#include "VideoManager.h"
 
 #define OSC_OUT_HOST "localhost"
 #define OSC_OUT_PORT 8888
@@ -45,10 +46,12 @@ public:
 	ofxUICanvas mGui;
 	void guiListener(ofxUIEventArgs &args);
 	float verticalUnit, horizontalUnit;
-	ofVec2f sensorGraphSize;
+	ofVec2f sensorGraphSize, videoSize;
 
 	ofSerial mSerial;
 	ofxOscSender mOscSender;
 	unsigned long long lastOscTime;
 	vector<Sensor> theSensors;
+	
+	//VideoManager mVideo;
 };

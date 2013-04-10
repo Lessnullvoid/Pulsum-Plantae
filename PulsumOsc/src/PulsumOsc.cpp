@@ -23,6 +23,7 @@ void PulsumOsc::setup(){
 	verticalUnit = ofGetHeight()/18;
 	horizontalUnit = ofGetWidth()/25;
 	sensorGraphSize = ofVec2f(horizontalUnit*12,verticalUnit*4);
+	videoSize = ofVec2f(ofGetWidth(), ofGetHeight());
 	
 	//////////////// the serial GUI
 	mGui.setFont("verdana.ttf");
@@ -99,12 +100,18 @@ void PulsumOsc::update(){
 		}
 		lastOscTime = ofGetElapsedTimeMillis();
 	}
+	
+	// update video
+	//mVideo.update();
 }
 
 //--------------------------------------------------------------
 void PulsumOsc::draw(){
 	ofBackground(0);
 
+	// display video
+	//mVideo.draw(videoSize);
+	
 	ofSetColor(255,255,0);
 	ofDrawBitmapString(ofToString((int) ofGetFrameRate()), 10, ofGetHeight()-20);
 	
