@@ -119,6 +119,17 @@ void PulsumOsc::draw(){
 		}
 		ofPopMatrix();
 	}
+	
+	// maybe draw time somewhere
+	/*
+	 int now = ofGetElapsedTimeMillis()/1000;
+	 int hours = now/3600;
+	 int minutes = (now%3600)/60;
+	 int seconds = (now%60);
+	 stringstream ss;
+	 ss << "Lectura de " << setfill('0') << setw(2) << hours << ":";
+	 ss << setfill('0') << setw(2) << minutes << ":" << setfill('0') << setw(2)<< seconds;
+	 */
 }
 
 //--------------------------------------------------------------
