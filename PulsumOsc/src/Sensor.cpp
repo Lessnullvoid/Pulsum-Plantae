@@ -46,6 +46,9 @@ const unsigned short Sensor::getAverageValue() const{
 	int getFromIndex = (averageEnd > 0)?(averageEnd-1):(sizeOf(averageValues)-1);
 	return averageValues[getFromIndex];
 }
+const unsigned short Sensor::getAverageValueNormalized() const{
+	return ofMap(getAverageValue(), getMin(), getMax(), 0, 1023, true);
+}
 
 
 void Sensor::addValue(const unsigned short val){
