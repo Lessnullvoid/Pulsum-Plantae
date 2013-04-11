@@ -17,6 +17,7 @@ public:
 	const unsigned short getMax() const;
 	const unsigned short getRawValue() const;
 	const unsigned short getAverageValue() const;
+	const unsigned short getAverageValueNormalized() const;
 	
 private:
 	void drawGraph(const unsigned short values[], const int sizeOfValues, const unsigned int lastIndex, const float width, const float height) const;
