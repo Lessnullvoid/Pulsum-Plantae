@@ -90,7 +90,7 @@ void PulsumOsc::update(){
 			// filtered value
 			mOscMessage.clear();
 			mOscMessage.setAddress(addPat+"filtrado");
-			mOscMessage.addFloatArg((float)theSensors.at(i).getAverageValue());
+			mOscMessage.addFloatArg((float)theSensors.at(i).getAverageValueNormalized());
 			mOscSender.sendMessage(mOscMessage);
 			// raw value
 			mOscMessage.clear();
