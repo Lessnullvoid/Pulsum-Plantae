@@ -1,4 +1,4 @@
-#N canvas 0 22 1280 752 10;
+#N canvas 27 22 1280 752 10;
 #X declare -lib mrpeach;
 #X obj -279 4 cnv 15 300 600 empty empty empty 900 400 0 14 -191407
 -66577 0;
@@ -136,10 +136,10 @@
 #X msg 147 306 3.7 8.8;
 #X msg 208 305 3.4 8.9;
 #X obj 45 551 output~;
-#X obj 53 153 vsl 30 40 1 127 0 0 empty empty empty 0 -9 0 10 -4032
+#X obj 53 153 vsl 30 40 1 1023 0 0 empty empty empty 0 -9 0 10 -4032
 -1 -1 0 1;
 #X floatatom 53 201 5 0 0 0 - - -;
-#X obj 104 153 vsl 30 40 1 127 0 0 empty empty empty 0 -9 0 10 -4032
+#X obj 104 153 vsl 30 40 1 1023 0 0 empty empty empty 0 -9 0 10 -4032
 -1 -1 0 1;
 #X obj 155 153 vsl 30 40 1 127 0 0 empty empty empty 0 -9 0 10 -4032
 -1 -1 0 1;
@@ -297,8 +297,49 @@
 #X obj 49 44 udpreceive 8001;
 #X obj 49 66 unpackOSC;
 #X obj 59 87 print unpacked;
-#X obj 49 20 import mrpeach;
-#X obj 50 109 routeOSC /osc0/crudo /osc0/min /osc2/crudo;
+#X obj 49 16 import mrpeach;
+#N canvas 458 358 450 300 map 1;
+#X obj 50 -339 inlet;
+#X obj 201 -339 inlet;
+#X obj 125 -339 inlet;
+#X obj 277 -339 inlet;
+#X obj 353 -339 inlet;
+#X obj 50 -167 outlet;
+#X obj 125 -313 float \$1;
+#X obj 201 -313 float \$2;
+#X obj 277 -313 float \$3;
+#X obj 353 -313 float \$4;
+#X text 281 -178 by Adrian Rennertz;
+#X obj 346 -366 loadbang;
+#X obj 50 -276 expr if($f2 == $f3 \, -1 \, (((($f1-$f2) / ($f3-$f2))
+* ($f5-$f4)) + $f4)) \; $f4 \; $f5 \;;
+#X obj 50 -188 limit;
+#X msg 346 -213 0;
+#X text 45 -435 inlets are (from left to right) input_value - input_range_low
+- input_range_high - output_range_low - output_range_high. low and
+high can be switched to invert the value. values that exceed the output
+range will output the treshold.;
+#X connect 0 0 12 0;
+#X connect 1 0 7 0;
+#X connect 2 0 6 0;
+#X connect 3 0 8 0;
+#X connect 4 0 9 0;
+#X connect 6 0 12 1;
+#X connect 7 0 12 2;
+#X connect 8 0 12 3;
+#X connect 9 0 12 4;
+#X connect 11 0 9 0;
+#X connect 11 0 8 0;
+#X connect 11 0 7 0;
+#X connect 11 0 6 0;
+#X connect 11 0 14 0;
+#X connect 12 0 13 0;
+#X connect 12 1 13 1;
+#X connect 12 2 13 2;
+#X connect 13 0 5 0;
+#X connect 14 0 13 3;
+#X restore 397 -1 pd map;
+#X obj 50 109 routeOSC /osc0/min /osc0/max /osc2/crudo;
 #X connect 1 0 3 1;
 #X connect 1 0 15 0;
 #X connect 1 0 22 0;
@@ -416,7 +457,7 @@
 #X connect 119 0 118 1;
 #X connect 122 0 123 0;
 #X connect 123 0 124 0;
-#X connect 123 0 126 0;
-#X connect 126 0 51 0;
-#X connect 126 1 53 0;
-#X connect 126 2 54 0;
+#X connect 123 0 127 0;
+#X connect 127 0 51 0;
+#X connect 127 1 53 0;
+#X connect 127 2 54 0;
