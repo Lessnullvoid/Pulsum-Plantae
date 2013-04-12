@@ -88,7 +88,7 @@ void PulsumOsc::update(){
 	}
 	
 	// update video
-	//mVideo.update();
+	mVideo.update(theSensors.back().getAverageValueNormalized());
 }
 
 //--------------------------------------------------------------
@@ -96,7 +96,7 @@ void PulsumOsc::draw(){
 	ofBackground(0);
 
 	// display video
-	//mVideo.draw(videoSize);
+	mVideo.draw(videoSize);
 	
 	ofSetColor(255,255,0);
 	ofDrawBitmapString(ofToString((int) ofGetFrameRate()), 10, ofGetHeight()-20);
