@@ -57,6 +57,9 @@ void VideoManager::update(int v){
 		mVideoPlayer.setVolume(0);
 		mVideoPlayer.setLoopState(OF_LOOP_NONE);
 		mVideoPlayer.play();
+
+		// update currentVideoIndex
+		currentVideoIndex = nextVideoIndex;
 	}
 }
 
