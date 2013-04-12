@@ -23,7 +23,7 @@ Sensor::Sensor(string name_){
 	averageIndex = 0;
 	
 	name = name_;
-	mFont.loadFont("verdana.ttf",16);
+	mFont.loadFont("Dekar.otf",16);
 }
 
 Sensor::~Sensor(){}
@@ -100,7 +100,7 @@ void Sensor::addValue(const unsigned short val){
 void Sensor::draw(const ofVec2f dimensions){
 	// background rectangle
 	ofFill();
-	ofSetColor(100);
+	ofSetColor(100,128);
 	ofRect(0,0,dimensions.x*11/12,dimensions.y);
 
 	// sensor title
@@ -131,7 +131,7 @@ void Sensor::draw(const ofVec2f dimensions){
 void Sensor::drawGraph(const unsigned short values[], const int sizeOfValues, const unsigned int lastIndex, const float width, const float height) const{
 	// background rectangle
 	ofFill();
-	ofSetColor(90);
+	ofSetColor(90,128);
 	ofRect(0,0,width, height);
 	
 	ofSetColor(255);

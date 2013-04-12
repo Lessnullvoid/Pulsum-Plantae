@@ -13,7 +13,7 @@ void PulsumOsc::setup(){
 	videoSize = ofVec2f(ofGetWidth(), ofGetHeight());
 	
 	//////////////// the serial GUI
-	mGui.setFont("verdana.ttf");
+	mGui.setFont("Dekar.otf");
 	////// Serial Port list
 	guiSerialList = (ofxUIDropDownList*) mGui.addWidgetDown(new ofxUIDropDownList(0, 0, horizontalUnit*6, "Serial List", theSerialList,0));
 	guiSerialList->setAutoClose(true);
@@ -30,7 +30,7 @@ void PulsumOsc::setup(){
 	//////////////// init some variables
 	bUpdateSerialList = true;
 	for(int i=0; i<6;i++){
-		theSensors.push_back(Sensor("sensor "+ofToString(i)));
+		theSensors.push_back(Sensor("Planta "+ofToString(i+1)));
 	}
 }
 
