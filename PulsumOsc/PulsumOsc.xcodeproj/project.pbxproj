@@ -25,6 +25,7 @@
 		AF06C32E1710230300CC0018 /* ofxXmlSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AF06C29D1710230100CC0018 /* ofxXmlSettings.cpp */; };
 		AF362C2017110BB200370E52 /* PulsumOsc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AF362C1E17110BB200370E52 /* PulsumOsc.cpp */; };
 		AF362C4917114BD400370E52 /* Sensor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AF362C4717114BD400370E52 /* Sensor.cpp */; };
+		AFA9C35B171410E300494A56 /* VideoManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFA9C359171410E300494A56 /* VideoManager.cpp */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
@@ -156,7 +157,9 @@
 		AF362C1F17110BB200370E52 /* PulsumOsc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PulsumOsc.h; sourceTree = "<group>"; };
 		AF362C4717114BD400370E52 /* Sensor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sensor.cpp; sourceTree = "<group>"; };
 		AF362C4817114BD400370E52 /* Sensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sensor.h; sourceTree = "<group>"; };
-		AFA9C32F171359E100494A56 /* PulsumOsc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = PulsumOsc.app; path = "/Users/thiago/Dev/openFrameworks/apps/Pulsum-Plantae/PulsumOsc/bin/PulsumOsc.app"; sourceTree = "<absolute>"; };
+		AFA9C35117137A8B00494A56 /* PulsumOsc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = PulsumOsc.app; path = "/Users/thiago/Dev/openFrameworks/apps/Pulsum-Plantae/PulsumOsc/bin/PulsumOsc.app"; sourceTree = "<absolute>"; };
+		AFA9C359171410E300494A56 /* VideoManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VideoManager.cpp; sourceTree = "<group>"; };
+		AFA9C35A171410E300494A56 /* VideoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoManager.h; sourceTree = "<group>"; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
@@ -453,6 +456,8 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				AFA9C359171410E300494A56 /* VideoManager.cpp */,
+				AFA9C35A171410E300494A56 /* VideoManager.h */,
 				AF362C4717114BD400370E52 /* Sensor.cpp */,
 				AF362C4817114BD400370E52 /* Sensor.h */,
 				AF362C1E17110BB200370E52 /* PulsumOsc.cpp */,
@@ -490,7 +495,7 @@
 			);
 			name = PulsumOsc;
 			productName = myOFApp;
-			productReference = AFA9C32F171359E100494A56 /* PulsumOsc.app */;
+			productReference = AFA9C35117137A8B00494A56 /* PulsumOsc.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -574,6 +579,7 @@
 				AF06C32E1710230300CC0018 /* ofxXmlSettings.cpp in Sources */,
 				AF362C2017110BB200370E52 /* PulsumOsc.cpp in Sources */,
 				AF362C4917114BD400370E52 /* Sensor.cpp in Sources */,
+				AFA9C35B171410E300494A56 /* VideoManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
