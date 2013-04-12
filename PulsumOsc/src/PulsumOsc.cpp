@@ -1,18 +1,5 @@
 #include "PulsumOsc.h"
 
-vector<string>& PulsumOsc::updateSerialList(){
-	theSerialList.clear();
-	theSerialList.push_back("Refresh List");
-
-	ofSerial tSerial;
-	vector<ofSerialDeviceInfo> serialList = tSerial.getDeviceList();
-	for(int i=0; i<serialList.size(); i++){
-		string thisDevicePath = serialList.at(i).getDevicePath();
-		theSerialList.push_back(thisDevicePath);
-	}
-	return theSerialList;
-}
-
 //--------------------------------------------------------------
 void PulsumOsc::setup(){
 	ofSetVerticalSync(true);
@@ -68,7 +55,6 @@ void PulsumOsc::update(){
 			unsigned short pinNumber = (upperByte>>0x04)&0x07;
 			unsigned short value = ((upperByte<<8)&0x0F00) | (lowerByte&0xFF);
 			
-			//cout << "val["<< pinNumber << "] = " << value << endl;
 			theSensors.at(pinNumber).addValue(value);
 		}
 	}
@@ -102,7 +88,7 @@ void PulsumOsc::update(){
 	}
 	
 	// update video
-	//mVideo.update();
+	mVideo.update(theSensors.back().getAverageValueNormalized());
 }
 
 //--------------------------------------------------------------
@@ -110,7 +96,7 @@ void PulsumOsc::draw(){
 	ofBackground(0);
 
 	// display video
-	//mVideo.draw(videoSize);
+	mVideo.draw(videoSize);
 	
 	ofSetColor(255,255,0);
 	ofDrawBitmapString(ofToString((int) ofGetFrameRate()), 10, ofGetHeight()-20);
@@ -159,6 +145,20 @@ void PulsumOsc::guiListener(ofxUIEventArgs &args){
 			}
 		}
 	}
+}
+
+//--------------------------------------------------------------
+vector<string>& PulsumOsc::updateSerialList(){
+	theSerialList.clear();
+	theSerialList.push_back("Refresh List");
+	
+	ofSerial tSerial;
+	vector<ofSerialDeviceInfo> serialList = tSerial.getDeviceList();
+	for(int i=0; i<serialList.size(); i++){
+		string thisDevicePath = serialList.at(i).getDevicePath();
+		theSerialList.push_back(thisDevicePath);
+	}
+	return theSerialList;
 }
 
 //--------------------------------------------------------------

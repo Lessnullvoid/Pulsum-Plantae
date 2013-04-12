@@ -12,9 +12,6 @@
 
 ///////////////////////////////
 //// TODO:
-////	- figure out video interaction
-////	- figure out min/max stuff with Leslie
-////	- figure out osc stuff with Leslie
 ////	- write xml
 
 class PulsumOsc : public ofBaseApp{
@@ -53,5 +50,5 @@ public:
 	unsigned long long lastOscTime;
 	vector<Sensor> theSensors;
 	
-	//VideoManager mVideo;
+	VideoManager mVideo;
 };
