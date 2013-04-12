@@ -50,4 +50,7 @@ public:
 	vector<Sensor> theSensors;
 	
 	VideoManager mVideo;
+	
+	ofTrueTypeFont mFont;
+	stringstream timeStream;
 };
