@@ -69,6 +69,9 @@ void VideoManager::draw(const ofVec2f dimensions){
 }
 
 void VideoManager::populateVideoNames(){
-	// TODO: fill this out (either manually, or by parsing the bin/data directory)
-	videoNames.push_back("New.mov");
+	ofDirectory moviesDir("videos");
+	moviesDir.listDir();
+	for(int i=0; i<moviesDir.numFiles(); ++i){
+		videoNames.push_back("videos/"+ofToString(moviesDir.getName(i)));
+	}
 }

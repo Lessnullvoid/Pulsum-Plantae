@@ -26,6 +26,9 @@
 		AF362C2017110BB200370E52 /* PulsumOsc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AF362C1E17110BB200370E52 /* PulsumOsc.cpp */; };
 		AF362C4917114BD400370E52 /* Sensor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AF362C4717114BD400370E52 /* Sensor.cpp */; };
 		AFA9C35B171410E300494A56 /* VideoManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AFA9C359171410E300494A56 /* VideoManager.cpp */; };
+		AFA9C3CE1718B71400494A56 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA9C3CC1718B6FE00494A56 /* QTKit.framework */; };
+		AFA9C3CF1718B71400494A56 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA9C3CA1718B6F800494A56 /* CoreVideo.framework */; };
+		AFA9C3D01718B71400494A56 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFA9C3C81718B6F400494A56 /* Accelerate.framework */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
@@ -40,7 +43,6 @@
 		E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1D0A3A1BDC003C02F2 /* main.cpp */; };
 		E4C2424710CC5A17004149E2 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C2424410CC5A17004149E2 /* AppKit.framework */; };
 		E4C2424810CC5A17004149E2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C2424510CC5A17004149E2 /* Cocoa.framework */; };
-		E4C2424910CC5A17004149E2 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C2424610CC5A17004149E2 /* IOKit.framework */; };
 		E4EB6799138ADC1D00A09F29 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
 /* End PBXBuildFile section */
 
@@ -157,9 +159,12 @@
 		AF362C1F17110BB200370E52 /* PulsumOsc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PulsumOsc.h; sourceTree = "<group>"; };
 		AF362C4717114BD400370E52 /* Sensor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Sensor.cpp; sourceTree = "<group>"; };
 		AF362C4817114BD400370E52 /* Sensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sensor.h; sourceTree = "<group>"; };
-		AFA9C35117137A8B00494A56 /* PulsumOsc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = PulsumOsc.app; path = "/Users/thiago/Dev/openFrameworks/apps/Pulsum-Plantae/PulsumOsc/bin/PulsumOsc.app"; sourceTree = "<absolute>"; };
 		AFA9C359171410E300494A56 /* VideoManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VideoManager.cpp; sourceTree = "<group>"; };
 		AFA9C35A171410E300494A56 /* VideoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoManager.h; sourceTree = "<group>"; };
+		AFA9C3C51718B6D200494A56 /* PulsumOsc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = PulsumOsc.app; path = "/Users/thiago/Dev/openFrameworks/apps/Pulsum-Plantae/PulsumOsc/bin/PulsumOsc.app"; sourceTree = "<absolute>"; };
+		AFA9C3C81718B6F400494A56 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = SYSTEM_DEVELOPER_DIR; };
+		AFA9C3CA1718B6F800494A56 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreVideo.framework; sourceTree = SYSTEM_DEVELOPER_DIR; };
+		AFA9C3CC1718B6FE00494A56 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/QTKit.framework; sourceTree = SYSTEM_DEVELOPER_DIR; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
@@ -175,7 +180,6 @@
 		E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = "openFrameworks-Info.plist"; sourceTree = "<group>"; };
 		E4C2424410CC5A17004149E2 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		E4C2424510CC5A17004149E2 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		E4C2424610CC5A17004149E2 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
 		E4EB691F138AFCF100A09F29 /* CoreOF.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = CoreOF.xcconfig; path = ../../../libs/openFrameworksCompiled/project/osx/CoreOF.xcconfig; sourceTree = SOURCE_ROOT; };
 		E4EB6923138AFD0F00A09F29 /* Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -187,18 +191,20 @@
 			files = (
 				E4EB6799138ADC1D00A09F29 /* GLUT.framework in Frameworks */,
 				E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */,
+				AFA9C3D01718B71400494A56 /* Accelerate.framework in Frameworks */,
 				E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */,
+				E4C2424710CC5A17004149E2 /* AppKit.framework in Frameworks */,
 				E45BE97C0E8CC7DD009D7055 /* ApplicationServices.framework in Frameworks */,
 				E45BE97D0E8CC7DD009D7055 /* AudioToolbox.framework in Frameworks */,
 				E45BE97E0E8CC7DD009D7055 /* Carbon.framework in Frameworks */,
+				E4C2424810CC5A17004149E2 /* Cocoa.framework in Frameworks */,
 				E45BE97F0E8CC7DD009D7055 /* CoreAudio.framework in Frameworks */,
 				E45BE9800E8CC7DD009D7055 /* CoreFoundation.framework in Frameworks */,
 				E45BE9810E8CC7DD009D7055 /* CoreServices.framework in Frameworks */,
+				AFA9C3CF1718B71400494A56 /* CoreVideo.framework in Frameworks */,
 				E45BE9830E8CC7DD009D7055 /* OpenGL.framework in Frameworks */,
+				AFA9C3CE1718B71400494A56 /* QTKit.framework in Frameworks */,
 				E45BE9840E8CC7DD009D7055 /* QuickTime.framework in Frameworks */,
-				E4C2424710CC5A17004149E2 /* AppKit.framework in Frameworks */,
-				E4C2424810CC5A17004149E2 /* Cocoa.framework in Frameworks */,
-				E4C2424910CC5A17004149E2 /* IOKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,17 +406,19 @@
 		BBAB23C913894ECA00AA2426 /* system frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E4C2424410CC5A17004149E2 /* AppKit.framework */,
-				E4C2424510CC5A17004149E2 /* Cocoa.framework */,
-				E4C2424610CC5A17004149E2 /* IOKit.framework */,
+				AFA9C3C81718B6F400494A56 /* Accelerate.framework */,
 				E45BE9710E8CC7DD009D7055 /* AGL.framework */,
+				E4C2424410CC5A17004149E2 /* AppKit.framework */,
 				E45BE9720E8CC7DD009D7055 /* ApplicationServices.framework */,
 				E45BE9730E8CC7DD009D7055 /* AudioToolbox.framework */,
 				E45BE9740E8CC7DD009D7055 /* Carbon.framework */,
+				E4C2424510CC5A17004149E2 /* Cocoa.framework */,
 				E45BE9750E8CC7DD009D7055 /* CoreAudio.framework */,
 				E45BE9760E8CC7DD009D7055 /* CoreFoundation.framework */,
 				E45BE9770E8CC7DD009D7055 /* CoreServices.framework */,
+				AFA9C3CA1718B6F800494A56 /* CoreVideo.framework */,
 				E45BE9790E8CC7DD009D7055 /* OpenGL.framework */,
+				AFA9C3CC1718B6FE00494A56 /* QTKit.framework */,
 				E45BE97A0E8CC7DD009D7055 /* QuickTime.framework */,
 			);
 			name = "system frameworks";
@@ -495,7 +503,7 @@
 			);
 			name = PulsumOsc;
 			productName = myOFApp;
-			productReference = AFA9C35117137A8B00494A56 /* PulsumOsc.app */;
+			productReference = AFA9C3C51718B6D200494A56 /* PulsumOsc.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
