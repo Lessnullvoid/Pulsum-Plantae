@@ -23,7 +23,7 @@ Sensor::Sensor(string name_){
 	averageIndex = 0;
 	
 	name = name_;
-	mFont.loadFont("Dekar.otf",16);
+	mFont.loadFont("Dekar.otf",20);
 }
 
 Sensor::~Sensor(){}
@@ -124,7 +124,7 @@ void Sensor::draw(const ofVec2f dimensions){
 	ofTranslate(0,dimensions.y*3/4);
 	stringstream ss;
 	ss << "current: " << getRawValue() << " min: " << minValue << " max: " << maxValue;
-	mFont.drawString(ss.str(), 0, mFont.getLineHeight());
+	mFont.drawString(ss.str(), 10, mFont.getLineHeight());
 	ofPopMatrix();
 }
 
