@@ -7,14 +7,14 @@ class VideoManager{
 public:
 	VideoManager();
 	~VideoManager();
-	void update();
+	void update(int v);
 	void draw(const ofVec2f dimensions);
-	void playVideo(int i=-1);
 
 private:
 	void populateVideoNames();
 
 	ofVideoPlayer mVideoPlayer;
-	int currentVideo, nextVideo;
+	int currentVideoIndex, currentVideoCounter;
+	int fadeValue;
 	vector<string> videoNames;
 };
