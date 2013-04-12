@@ -25,7 +25,9 @@ Release*/
 *.app/
 */bin/*
 !*/bin/data
-*/bin/data/openni
+!*/bin/data/videos
+*/bin/data/videos/*mov
+*/bin/data/videos/*mp4
 
 #emacs
 *~
