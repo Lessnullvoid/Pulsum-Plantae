@@ -64,8 +64,13 @@ void PulsumOsc::update(){
 		}
 	}
 	
-	// send osc
+	// send osc and xml
 	if(ofGetElapsedTimeMillis()-lastOscTime > OSC_PERIOD){
+		stringstream xmlOut;
+		xmlOut << "<reading time=\"" << timeStream.str() << ".";
+		xmlOut << setfill('0') << setw(3) << (int)((ofGetElapsedTimef()-(int)ofGetElapsedTimef())*1000) << "\">\n";
+		xmlOut << fixed << setprecision(3) << "\t<millis>" << ofGetElapsedTimef() << "</millis>\n";
+
 		for(int i=0; i<theSensors.size(); ++i){
 			string addPat = "/osc"+ofToString(i)+"/";
 			ofxOscMessage mOscMessage;
@@ -88,7 +93,18 @@ void PulsumOsc::update(){
 			mOscMessage.setAddress(addPat+"crudo");
 			mOscMessage.addFloatArg((float)theSensors.at(i).getRawValue());
 			mOscSender.sendMessage(mOscMessage);
+			
+			// xml
+			xmlOut << "\t<sensor name=\"" << theSensors.at(i).getName() << "\">\n";
+			xmlOut << "\t\t<min>" << theSensors.at(i).getMin() << "</min>\n";
+			xmlOut << "\t\t<max>" << theSensors.at(i).getMax() << "</max>\n";
+			xmlOut << "\t\t<crudo>" << theSensors.at(i).getRawValue() << "</crudo>\n";
+			xmlOut << "\t\t<filtrado>" << theSensors.at(i).getAverageValueNormalized() << "</filtrado>\n";
+			xmlOut << "\t</sensor>\n";
 		}
+		xmlOut << "</reading>\n";
+		cout << xmlOut.str();
+
 		lastOscTime = ofGetElapsedTimeMillis();
 	}
 	
