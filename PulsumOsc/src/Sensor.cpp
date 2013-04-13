@@ -28,6 +28,9 @@ Sensor::Sensor(string name_){
 
 Sensor::~Sensor(){}
 
+const string Sensor::getName() const{
+	return name;
+}
 const unsigned short Sensor::getMin() const{
 	return minValue;
 }
