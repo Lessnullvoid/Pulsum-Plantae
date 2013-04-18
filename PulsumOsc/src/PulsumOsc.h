@@ -9,6 +9,7 @@
 #define OSC_OUT_HOST "localhost"
 #define OSC_OUT_PORT 8001
 #define OSC_PERIOD 100
+#define XML_PERIOD 5000
 
 ///////////////////////////////
 //// TODO: write xml
@@ -47,7 +48,7 @@ public:
 
 	ofSerial mSerial;
 	ofxOscSender mOscSender;
-	unsigned long long lastOscTime;
+	unsigned long long lastOscTime, lastXmlTime;
 	vector<Sensor> theSensors;
 	
 	VideoManager mVideo;

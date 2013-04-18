@@ -45,6 +45,8 @@ void PulsumOsc::setup(){
 	mOutputXml.open (ofToDataPath(fileName.str()).c_str(), ios::out | ios::app);
 	mOutputXml << "<!-- Pulsu(m) Plantae xml file -->\n";
 	mOutputXml << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+	
+	lastXmlTime = ofGetElapsedTimeMillis();
 }
 
 //--------------------------------------------------------------
@@ -72,13 +74,8 @@ void PulsumOsc::update(){
 		}
 	}
 	
-	// send osc and xml
+	// send osc
 	if(ofGetElapsedTimeMillis()-lastOscTime > OSC_PERIOD){
-		stringstream xmlOut;
-		xmlOut << "<reading time=\"" << timeStream.str() << ".";
-		xmlOut << setfill('0') << setw(3) << (int)((ofGetElapsedTimef()-(int)ofGetElapsedTimef())*1000) << "\">\n";
-		xmlOut << fixed << setprecision(3) << "\t<millis>" << ofGetElapsedTimef() << "</millis>\n";
-
 		for(int i=0; i<theSensors.size(); ++i){
 			string addPat = "/osc"+ofToString(i)+"/";
 			ofxOscMessage mOscMessage;
@@ -101,21 +98,35 @@ void PulsumOsc::update(){
 			mOscMessage.setAddress(addPat+"crudo");
 			mOscMessage.addFloatArg((float)theSensors.at(i).getRawValue());
 			mOscSender.sendMessage(mOscMessage);
-			
-			// xml
+		}
+
+		lastOscTime = ofGetElapsedTimeMillis();
+
+	}
+	
+	// write xml
+	if(ofGetElapsedTimeMillis()-lastXmlTime > XML_PERIOD){
+		stringstream xmlOut;
+		xmlOut << "<reading time=\"" << timeStream.str() << ".";
+		xmlOut << setfill('0') << setw(3) << (int)((ofGetElapsedTimef()-(int)ofGetElapsedTimef())*1000) << "\">\n";
+		xmlOut << fixed << setprecision(3) << "\t<millis>" << ofGetElapsedTimef() << "</millis>\n";
+
+		// get sensor data
+		for(int i=0; i<theSensors.size(); ++i){
 			xmlOut << "\t<sensor name=\"" << theSensors.at(i).getName() << "\">\n";
 			xmlOut << "\t\t<id>" << i << "</id>\n";
 			xmlOut << "\t\t<min>" << theSensors.at(i).getMin() << "</min>\n";
 			xmlOut << "\t\t<max>" << theSensors.at(i).getMax() << "</max>\n";
 			xmlOut << "\t\t<crudo>" << theSensors.at(i).getRawValue() << "</crudo>\n";
 			xmlOut << "\t\t<filtrado>" << theSensors.at(i).getAverageValueNormalized() << "</filtrado>\n";
-			xmlOut << "\t</sensor>\n";
+			xmlOut << "\t</sensor>\n";		
 		}
 		xmlOut << "</reading>\n";
 		mOutputXml << xmlOut.str();
 
-		lastOscTime = ofGetElapsedTimeMillis();
+		lastXmlTime = ofGetElapsedTimeMillis();
 	}
+
 	
 	// update video
 	mVideo.update(theSensors.back().getAverageValueNormalized());
