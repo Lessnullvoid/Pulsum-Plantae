@@ -96,6 +96,7 @@ void PulsumOsc::update(){
 			
 			// xml
 			xmlOut << "\t<sensor name=\"" << theSensors.at(i).getName() << "\">\n";
+			xmlOut << "\t\t<id>" << i << "</id>\n";
 			xmlOut << "\t\t<min>" << theSensors.at(i).getMin() << "</min>\n";
 			xmlOut << "\t\t<max>" << theSensors.at(i).getMax() << "</max>\n";
 			xmlOut << "\t\t<crudo>" << theSensors.at(i).getRawValue() << "</crudo>\n";
