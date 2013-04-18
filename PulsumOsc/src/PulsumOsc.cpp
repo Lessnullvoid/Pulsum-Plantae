@@ -40,13 +40,13 @@ void PulsumOsc::setup(){
 
 	//////////////// open output file
 	stringstream fileName;
-	fileName << "Pulsum_" << ofGetYear() << setfill('0') << setw(2) << ofGetMonth() << ofGetDay();
-	fileName << "_" << setfill('0') << setw(2) << ofGetHours() << ofGetMinutes() << ofGetSeconds() << ".xml";
+	fileName << setfill('0') << "Pulsum_" << ofGetYear() << setw(2) << ofGetMonth() << setw(2) << ofGetDay();
+	fileName << "_" << setw(2) << ofGetHours() << setw(2) << ofGetMinutes() << setw(2) << ofGetSeconds() << ".xml";
 	mOutputXml.open (ofToDataPath(fileName.str()).c_str(), ios::out | ios::app);
-	mOutputXml << "<!-- Pulsu(m) Plantae xml file -->\n";
 	mOutputXml << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+	mOutputXml << "<!-- Pulsu(m) Plantae xml file -->\n";
 	
-	lastXmlTime = ofGetElapsedTimeMillis();
+	lastXmlTime = 0-XML_PERIOD;
 }
 
 //--------------------------------------------------------------
