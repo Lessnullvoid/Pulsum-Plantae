@@ -25,6 +25,7 @@ Release*/
 *.app/
 */bin/*
 !*/bin/data
+*/bin/data/*xml
 !*/bin/data/videos
 */bin/data/videos/*mov
 */bin/data/videos/*mp4

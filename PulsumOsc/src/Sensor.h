@@ -13,6 +13,7 @@ public:
 	~Sensor();
 	void addValue(const unsigned short val);
 	void draw(const ofVec2f dimensions);
+	const string getName() const;
 	const unsigned short getMin() const;
 	const unsigned short getMax() const;
 	const unsigned short getRawValue() const;

@@ -37,6 +37,16 @@ void PulsumOsc::setup(){
 	for(int i=0; i<6;i++){
 		theSensors.push_back(Sensor("Planta "+ofToString(i+1)));
 	}
+
+	//////////////// open output file
+	stringstream fileName;
+	fileName << setfill('0') << "Pulsum_" << ofGetYear() << setw(2) << ofGetMonth() << setw(2) << ofGetDay();
+	fileName << "_" << setw(2) << ofGetHours() << setw(2) << ofGetMinutes() << setw(2) << ofGetSeconds() << ".xml";
+	mOutputXml.open (ofToDataPath(fileName.str()).c_str(), ios::out | ios::app);
+	mOutputXml << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+	mOutputXml << "<!-- Pulsu(m) Plantae xml file -->\n";
+	
+	lastXmlTime = 0-XML_PERIOD;
 }
 
 //--------------------------------------------------------------
@@ -89,8 +99,34 @@ void PulsumOsc::update(){
 			mOscMessage.addFloatArg((float)theSensors.at(i).getRawValue());
 			mOscSender.sendMessage(mOscMessage);
 		}
+
 		lastOscTime = ofGetElapsedTimeMillis();
+
 	}
+	
+	// write xml
+	if(ofGetElapsedTimeMillis()-lastXmlTime > XML_PERIOD){
+		stringstream xmlOut;
+		xmlOut << "<reading time=\"" << timeStream.str() << ".";
+		xmlOut << setfill('0') << setw(3) << (int)((ofGetElapsedTimef()-(int)ofGetElapsedTimef())*1000) << "\">\n";
+		xmlOut << fixed << setprecision(3) << "\t<millis>" << ofGetElapsedTimef() << "</millis>\n";
+
+		// get sensor data
+		for(int i=0; i<theSensors.size(); ++i){
+			xmlOut << "\t<sensor name=\"" << theSensors.at(i).getName() << "\">\n";
+			xmlOut << "\t\t<id>" << i << "</id>\n";
+			xmlOut << "\t\t<min>" << theSensors.at(i).getMin() << "</min>\n";
+			xmlOut << "\t\t<max>" << theSensors.at(i).getMax() << "</max>\n";
+			xmlOut << "\t\t<crudo>" << theSensors.at(i).getRawValue() << "</crudo>\n";
+			xmlOut << "\t\t<filtrado>" << theSensors.at(i).getAverageValueNormalized() << "</filtrado>\n";
+			xmlOut << "\t</sensor>\n";		
+		}
+		xmlOut << "</reading>\n";
+		mOutputXml << xmlOut.str();
+
+		lastXmlTime = ofGetElapsedTimeMillis();
+	}
+
 	
 	// update video
 	mVideo.update(theSensors.back().getAverageValueNormalized());
@@ -143,6 +179,11 @@ void PulsumOsc::draw(){
 	ofSetColor(255);
 	mFont.drawString("Pulsu(m) Plantae V.2", 10, mFont.getLineHeight());
 	ofPopMatrix();
+}
+
+//--------------------------------------------------------------
+void PulsumOsc::exit(){
+	mOutputXml.close();
 }
 
 //--------------------------------------------------------------
