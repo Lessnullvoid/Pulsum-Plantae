@@ -11,9 +11,6 @@
 #define OSC_PERIOD 100
 #define XML_PERIOD 5000
 
-///////////////////////////////
-//// TODO: write xml
-
 class PulsumOsc : public ofBaseApp{
 	
 public:
