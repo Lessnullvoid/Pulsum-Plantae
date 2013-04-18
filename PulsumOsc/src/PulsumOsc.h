@@ -19,6 +19,7 @@ public:
 	void setup();
 	void update();
 	void draw();
+	void exit();
 	
 	void thresholdCam(ofVideoGrabber &in, ofImage &out);
 	void blowUpPolyline(ofPolyline &pl);
@@ -53,4 +54,6 @@ public:
 	
 	ofTrueTypeFont mFont;
 	stringstream timeStream;
+	
+	ofstream mOutputXml;
 };

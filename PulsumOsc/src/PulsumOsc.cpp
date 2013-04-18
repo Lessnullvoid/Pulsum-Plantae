@@ -37,6 +37,14 @@ void PulsumOsc::setup(){
 	for(int i=0; i<6;i++){
 		theSensors.push_back(Sensor("Planta "+ofToString(i+1)));
 	}
+
+	//////////////// open output file
+	stringstream fileName;
+	fileName << "Pulsum_" << ofGetYear() << setfill('0') << setw(2) << ofGetMonth() << ofGetDay();
+	fileName << "_" << setfill('0') << setw(2) << ofGetHours() << ofGetMinutes() << ofGetSeconds() << ".xml";
+	mOutputXml.open (ofToDataPath(fileName.str()).c_str(), ios::out | ios::app);
+	mOutputXml << "<!-- Pulsu(m) Plantae xml file -->\n";
+	mOutputXml << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 }
 
 //--------------------------------------------------------------
@@ -104,7 +112,7 @@ void PulsumOsc::update(){
 			xmlOut << "\t</sensor>\n";
 		}
 		xmlOut << "</reading>\n";
-		cout << xmlOut.str();
+		mOutputXml << xmlOut.str();
 
 		lastOscTime = ofGetElapsedTimeMillis();
 	}
@@ -160,6 +168,11 @@ void PulsumOsc::draw(){
 	ofSetColor(255);
 	mFont.drawString("Pulsu(m) Plantae V.2", 10, mFont.getLineHeight());
 	ofPopMatrix();
+}
+
+//--------------------------------------------------------------
+void PulsumOsc::exit(){
+	mOutputXml.close();
 }
 
 //--------------------------------------------------------------
