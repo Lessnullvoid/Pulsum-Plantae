@@ -1,0 +1,102 @@
+#N canvas 71 195 616 539 10;
+#X obj 20 20 cnv 10 10 145 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 21 21 cnv 10 8 143 empty empty empty 20 12 0 14 -158913 -66577
+0;
+#X obj 170 35 vsl 30 115 0 100 0 0 main-level-ctrl main-level-ctrl-r
+empty 1 -8 0 10 -99865 -191407 -1 10716 1;
+#X obj 30 57 vsl 20 105 0 1 0 0 1-gain 1-gain-r empty 0 -9 0 10 -66577
+-162280 -1 10400 0;
+#X obj 50 57 vsl 20 105 0 1 0 0 2-gain 2-gain-r empty 0 -9 0 10 -66577
+-162280 -1 0 0;
+#X obj 70 57 vsl 20 105 0 1 0 0 3-gain 3-gain-r empty 0 -9 0 10 -66577
+-162280 -1 0 0;
+#X obj 90 57 vsl 20 105 0 1 0 0 4-gain 4-gain-r empty 0 -9 0 10 -66577
+-162280 -1 0 0;
+#X obj 110 57 vsl 20 105 0 1 0 0 5-gain 5-gain-r empty 0 -9 0 10 -66577
+-162280 -1 4888 0;
+#X obj 130 57 vsl 20 105 0 1 0 0 6-gain 6-gain-r empty 0 -9 0 10 -66577
+-162280 -1 4888 0;
+#X obj 40 22 vsl 10 30 0 1 0 0 1-fx2-send-ctrl 1-fx2-send-ctrl-r empty
+0 -9 0 10 -66577 -162280 -1 0 1;
+#X obj 30 22 vsl 10 30 0 1 0 0 1-fx1-send-ctrl 1-fx1-send-ctrl-r empty
+0 -9 0 10 -66577 -162280 -1 0 1;
+#X obj 60 22 vsl 10 30 0 1 0 0 2-fx2-send-ctrl 2-fx2-send-ctrl-r empty
+0 -9 0 10 -66577 -162280 -1 0 1;
+#X obj 50 22 vsl 10 30 0 1 0 0 2-fx1-send-ctrl 2-fx1-send-ctrl-r empty
+0 -9 0 10 -66577 -162280 -1 0 1;
+#X obj 80 22 vsl 10 30 0 1 0 0 3-fx2-send-ctrl 3-fx2-send-ctrl-r empty
+0 -9 0 10 -66577 -162280 -1 0 1;
+#X obj 70 22 vsl 10 30 0 127 0 0 3-fx1-send-ctrl 3-fx1-send-ctrl-r
+empty 0 -9 0 10 -66577 -162280 -1 0 1;
+#X obj 100 22 vsl 10 30 0 1 0 0 4-fx2-send-ctrl 4-fx2-send-ctrl-r empty
+0 -9 0 10 -66577 -162280 -1 0 1;
+#X obj 90 22 vsl 10 30 0 1 0 0 4-fx1-send-ctrl 4-fx1-send-ctrl-r empty
+0 -9 0 10 -66577 -162280 -1 0 1;
+#X obj 120 22 vsl 10 30 0 1 0 0 5-fx2-send-ctrl 5-fx2-send-ctrl-r empty
+0 -9 0 10 -66577 -162280 -1 0 1;
+#X obj 110 22 vsl 10 30 0 1 0 0 5-fx1-send-ctrl 5-fx1-send-ctrl-r empty
+0 -9 0 10 -66577 -162280 -1 0 1;
+#X obj 140 22 vsl 10 30 0 1 0 0 6-fx2-send-ctrl 6-fx2-send-ctrl-r empty
+0 -9 0 10 -66577 -162280 -1 0 1;
+#X obj 130 22 vsl 10 30 0 1 0 0 6-fx1-send-ctrl 6-fx1-send-ctrl-r empty
+0 -9 0 10 -66577 -162280 -1 0 1;
+#X obj 170 20 cnv 8 30 13 empty empty empty 20 12 0 14 -1 -66577 0
+;
+#X obj 171 21 cnv 8 28 11 empty main-level-cnv-r -6dB 1 7 1 9 -104833
+-212929 0;
+#X obj 150 57 vsl 20 105 0 1 0 0 7-gain 7-gain-r empty 0 -9 0 10 -66577
+-162280 -1 4888 0;
+#X obj 160 22 vsl 10 30 0 1 0 0 7-fx2-send-ctrl 7-fx2-send-ctrl-r empty
+0 -9 0 10 -66577 -162280 -1 0 1;
+#X obj 150 22 vsl 10 30 0 1 0 0 7-fx1-send-ctrl 7-fx1-send-ctrl-r empty
+0 -9 0 10 -66577 -162280 -1 0 1;
+#X obj 170 155 vsl 30 7 0 100 0 0 main-mute-ctrl main-mute-ctrl-r mute
+3 3 0 9 -262144 -262144 -1 0 1;
+#X floatatom 162 310 3 0 0 0 - - -;
+#X floatatom 229 309 3 0 0 0 - - -;
+#X floatatom 296 308 3 0 0 0 - - -;
+#X floatatom 367 308 3 0 0 0 - - -;
+#X floatatom 436 307 3 0 0 0 - - -;
+#X floatatom 499 307 3 0 0 0 - - -;
+#X obj 491 192 ctlin 12;
+#X floatatom 95 319 3 0 0 0 - - -;
+#X obj 104 258 / 127;
+#X floatatom 30 324 3 0 0 0 - - -;
+#X obj 42 263 / 127;
+#X obj 158 257 / 127;
+#X obj 223 255 / 127;
+#X obj 291 256 / 127;
+#X obj 358 253 / 127;
+#X obj 429 248 / 127;
+#X obj 221 194 ctlin 7;
+#X obj 288 193 ctlin 81;
+#X obj 359 190 ctlin 82;
+#X obj 428 192 ctlin 83;
+#X obj 8 202 ctlin 4;
+#X obj 76 202 ctlin 5;
+#X obj 154 195 ctlin 6;
+#X connect 27 0 5 0;
+#X connect 28 0 6 0;
+#X connect 29 0 7 0;
+#X connect 30 0 8 0;
+#X connect 31 0 23 0;
+#X connect 32 0 2 0;
+#X connect 33 0 32 0;
+#X connect 34 0 4 0;
+#X connect 35 0 34 0;
+#X connect 36 0 3 0;
+#X connect 37 0 36 0;
+#X connect 38 0 27 0;
+#X connect 39 0 28 0;
+#X connect 40 0 29 0;
+#X connect 41 0 30 0;
+#X connect 42 0 31 0;
+#X connect 43 0 39 0;
+#X connect 44 0 40 0;
+#X connect 45 0 41 0;
+#X connect 46 0 42 0;
+#X connect 47 0 37 0;
+#X connect 48 0 35 0;
+#X connect 49 0 38 0;
+#X coords 0 -1 1 1 180 145 2 20 20;
