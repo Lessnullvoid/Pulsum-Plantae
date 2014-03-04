@@ -1,0 +1,50 @@
+*Pick And Place List
+*Company=
+*Author=
+*eMail=
+*
+*Project=GalvanicoLM324n.tgh
+*Date=17:22:48
+*CreatedBy=Fritzing 0.8.5b.12.16.8b2c
+*
+*
+*Coordinates in mm, always center of component
+*Origin 0/0=Lower left corner of PCB
+*Rotation in degree (0-360, math. pos.)
+*
+*No;Value;Package;X;Y;Rotation;Side;Name
+1;;;26.0858;-41.4082;0;Bottom;Copper Fill1
+2;;;7.68002;-39.6505;0;Bottom;TXT2
+3;;;28.7782;-39.0206;0;Bottom;Copper Fill4
+4;;THT;7.50394;-28.6646;180;Bottom;power
+5;;;26.1492;-2.58926;0;Bottom;TXT1
+6;;;8.74176;-42.896;0;Bottom;TXT2
+7;;;17.4498;-17.4306;0;Bottom;Copper Fill10
+8;100nF;;45.2268;-15.2218;90;Bottom;1M
+9;;;47.856;-21.821;0;Bottom;TXT2
+10;;;43.3579;-32.8484;0;Bottom;Copper Fill5
+11;;DIP14 [THT];33.9201;-35.1817;-90;Bottom;LM324N
+12;;;33.9345;-20.25;0;Bottom;Copper Fill8
+13;;THT;33.753;-9.52785;-90;Bottom;electrodos
+14;100;THT;42.4328;-44.1219;0;Bottom;100k
+15;;;9.47577;-18.5063;0;Bottom;TXT1
+16;;;26.0858;-15.1192;0;Bottom;Copper Fill9
+17;;;5.53719;-27.8192;0;Bottom;Copper Fill7
+18;100;THT;44.2658;-26.1311;0;Bottom;100k
+19;;;26.0858;-25.9142;0;Bottom;Copper Fill11
+20;10k;THT;28.9707;-44.1219;0;Bottom;10k
+21;;;4.84359;-5.00604;0;Bottom;Hole4
+22;10k;THT;16.1399;-33.9117;-90;Bottom;10K
+23;;;47.2615;-5.00604;0;Bottom;Hole3
+24;100nF;;18.1719;-15.1716;90;Bottom;100k
+25;;THT;49.2936;-39.5499;180;Bottom;salida
+26;220;THT;45.7376;-34.9779;-90;Bottom;10K
+27;100;THT;23.7599;-23.7517;0;Bottom;100k
+28;;;9.6419;-20.8773;0;Bottom;TXT2
+29;;THT;41.5401;-7.24171;0;Bottom;1.5v
+30;220;THT;21.2199;-8.51171;180;Bottom;1M
+31;;;4.84359;-47.424;0;Bottom;Hole1
+32;;;47.2615;-47.424;0;Bottom;Hole2
+33;;;43.9421;-41.6114;0;Bottom;Copper Fill3
+34;;;18.6944;-41.5606;0;Bottom;Copper Fill2
+35;;;15.5194;-33.7628;0;Bottom;Copper Fill6
