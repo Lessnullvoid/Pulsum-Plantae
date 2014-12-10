@@ -23,11 +23,14 @@ Sensor::Sensor(string name_){
 	averageIndex = 0;
 	
 	name = name_;
-	mFont.loadFont("verdana.ttf",16);
+	mFont.loadFont("Dekar.otf",20);
 }
 
 Sensor::~Sensor(){}
 
+const string Sensor::getName() const{
+	return name;
+}
 const unsigned short Sensor::getMin() const{
 	return minValue;
 }
@@ -100,7 +103,7 @@ void Sensor::addValue(const unsigned short val){
 void Sensor::draw(const ofVec2f dimensions){
 	// background rectangle
 	ofFill();
-	ofSetColor(100);
+	ofSetColor(100,128);
 	ofRect(0,0,dimensions.x*11/12,dimensions.y);
 
 	// sensor title
@@ -124,14 +127,14 @@ void Sensor::draw(const ofVec2f dimensions){
 	ofTranslate(0,dimensions.y*3/4);
 	stringstream ss;
 	ss << "current: " << getRawValue() << " min: " << minValue << " max: " << maxValue;
-	mFont.drawString(ss.str(), 0, mFont.getLineHeight());
+	mFont.drawString(ss.str(), 10, mFont.getLineHeight());
 	ofPopMatrix();
 }
 
 void Sensor::drawGraph(const unsigned short values[], const int sizeOfValues, const unsigned int lastIndex, const float width, const float height) const{
 	// background rectangle
 	ofFill();
-	ofSetColor(90);
+	ofSetColor(90,128);
 	ofRect(0,0,width, height);
 	
 	ofSetColor(255);

@@ -5,6 +5,9 @@ void PulsumOsc::setup(){
 	ofSetVerticalSync(true);
 	ofEnableAlphaBlending();
 	ofEnableSmoothing();
+	
+	//////////////// init font
+	mFont.loadFont("Dekar.otf", 20);
 
 	// grids for drawing objects
 	verticalUnit = ofGetHeight()/18;
@@ -13,7 +16,9 @@ void PulsumOsc::setup(){
 	videoSize = ofVec2f(ofGetWidth(), ofGetHeight());
 	
 	//////////////// the serial GUI
-	mGui.setFont("verdana.ttf");
+	mGui.setFont("Dekar.otf");
+	mGui.setFontSize(OFX_UI_FONT_LARGE, 14);
+
 	////// Serial Port list
 	guiSerialList = (ofxUIDropDownList*) mGui.addWidgetDown(new ofxUIDropDownList(0, 0, horizontalUnit*6, "Serial List", theSerialList,0));
 	guiSerialList->setAutoClose(true);
@@ -27,11 +32,21 @@ void PulsumOsc::setup(){
 	mOscSender.setup(OSC_OUT_HOST, OSC_OUT_PORT);
 	lastOscTime = ofGetElapsedTimeMillis();
 	
-	//////////////// init some variables
+	//////////////// init sensor array
 	bUpdateSerialList = true;
 	for(int i=0; i<6;i++){
-		theSensors.push_back(Sensor("sensor "+ofToString(i)));
+		theSensors.push_back(Sensor("Planta "+ofToString(i+1)));
 	}
+
+	//////////////// open output file
+	stringstream fileName;
+	fileName << setfill('0') << "Pulsum_" << ofGetYear() << setw(2) << ofGetMonth() << setw(2) << ofGetDay();
+	fileName << "_" << setw(2) << ofGetHours() << setw(2) << ofGetMinutes() << setw(2) << ofGetSeconds() << ".xml";
+	mOutputXml.open (ofToDataPath(fileName.str()).c_str(), ios::out | ios::app);
+	mOutputXml << "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
+	mOutputXml << "<!-- Pulsu(m) Plantae xml file -->\n";
+	
+	lastXmlTime = 0-XML_PERIOD;
 }
 
 //--------------------------------------------------------------
@@ -84,11 +99,46 @@ void PulsumOsc::update(){
 			mOscMessage.addFloatArg((float)theSensors.at(i).getRawValue());
 			mOscSender.sendMessage(mOscMessage);
 		}
+
 		lastOscTime = ofGetElapsedTimeMillis();
+
 	}
+	
+	// write xml
+	if(ofGetElapsedTimeMillis()-lastXmlTime > XML_PERIOD){
+		stringstream xmlOut;
+		xmlOut << "<reading time=\"" << timeStream.str() << ".";
+		xmlOut << setfill('0') << setw(3) << (int)((ofGetElapsedTimef()-(int)ofGetElapsedTimef())*1000) << "\">\n";
+		xmlOut << fixed << setprecision(3) << "\t<millis>" << ofGetElapsedTimef() << "</millis>\n";
+
+		// get sensor data
+		for(int i=0; i<theSensors.size(); ++i){
+			xmlOut << "\t<sensor name=\"" << theSensors.at(i).getName() << "\">\n";
+			xmlOut << "\t\t<id>" << i << "</id>\n";
+			xmlOut << "\t\t<min>" << theSensors.at(i).getMin() << "</min>\n";
+			xmlOut << "\t\t<max>" << theSensors.at(i).getMax() << "</max>\n";
+			xmlOut << "\t\t<crudo>" << theSensors.at(i).getRawValue() << "</crudo>\n";
+			xmlOut << "\t\t<filtrado>" << theSensors.at(i).getAverageValueNormalized() << "</filtrado>\n";
+			xmlOut << "\t</sensor>\n";		
+		}
+		xmlOut << "</reading>\n";
+		mOutputXml << xmlOut.str();
+
+		lastXmlTime = ofGetElapsedTimeMillis();
+	}
+
 	
 	// update video
 	mVideo.update(theSensors.back().getAverageValueNormalized());
+	
+	// update timer string
+	int hours = ((int)ofGetElapsedTimef())/3600;
+	int minutes = (((int)ofGetElapsedTimef())%3600)/60;
+	int seconds = ((int)ofGetElapsedTimef())%60;
+	timeStream.str("");
+	timeStream << setfill('0') << setw(2) << hours << ":";
+	timeStream << setfill('0') << setw(2) << minutes << ":";
+	timeStream << setfill('0') << setw(2) << seconds;
 }
 
 //--------------------------------------------------------------
@@ -97,9 +147,19 @@ void PulsumOsc::draw(){
 
 	// display video
 	mVideo.draw(videoSize);
-	
+
+	// frame rate
 	ofSetColor(255,255,0);
 	ofDrawBitmapString(ofToString((int) ofGetFrameRate()), 10, ofGetHeight()-20);
+
+	// program time
+	ofPushMatrix();
+	ofTranslate(horizontalUnit*13,verticalUnit);
+	ofSetColor(100,128);
+	ofRect(0,0,horizontalUnit*6, verticalUnit);
+	ofSetColor(255);
+	mFont.drawString(timeStream.str(), 10, mFont.getLineHeight());
+	ofPopMatrix();
 	
 	for(int i=0; i<2; i++){
 		ofPushMatrix();
@@ -113,16 +173,17 @@ void PulsumOsc::draw(){
 		ofPopMatrix();
 	}
 	
-	// maybe draw time somewhere
-	/*
-	 int now = ofGetElapsedTimeMillis()/1000;
-	 int hours = now/3600;
-	 int minutes = (now%3600)/60;
-	 int seconds = (now%60);
-	 stringstream ss;
-	 ss << "Lectura de " << setfill('0') << setw(2) << hours << ":";
-	 ss << setfill('0') << setw(2) << minutes << ":" << setfill('0') << setw(2)<< seconds;
-	 */
+	// Pulsu(m) Plantae title
+	ofPushMatrix();
+	ofTranslate(horizontalUnit*19+10,verticalUnit*17);
+	ofSetColor(255);
+	mFont.drawString("Pulsu(m) Plantae V.2", 10, mFont.getLineHeight());
+	ofPopMatrix();
+}
+
+//--------------------------------------------------------------
+void PulsumOsc::exit(){
+	mOutputXml.close();
 }
 
 //--------------------------------------------------------------

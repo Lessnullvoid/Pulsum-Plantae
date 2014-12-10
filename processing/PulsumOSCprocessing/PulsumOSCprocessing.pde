@@ -4,7 +4,6 @@ import netP5.*;
 import processing.serial.*;
 
 
-
 Serial port;
 int val;
 int[][] values;
@@ -19,7 +18,7 @@ void setup() {
   size(1280, 720);
   frameRate(60);
   println(Serial.list());
-  port = new Serial(this, Serial.list()[0], 57600);
+  port = new Serial(this, Serial.list()[7], 57600);
   graphDim = new PVector(width/2, height/3);
   values = new int[6][(int)graphDim.x];
   smooth();

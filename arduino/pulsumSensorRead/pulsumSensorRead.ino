@@ -2,7 +2,7 @@
 #define NUMPINS 6
 
 // read at most 100 times a second
-#define READPERIOD 10
+#define READPERIOD 5
 
 // a header for outgoing serial messages
 #define MSGHEADER 0xAB
