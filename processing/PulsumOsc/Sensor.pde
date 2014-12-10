@@ -51,6 +51,9 @@ public class Sensor {
   public short getMax() {
     return maxValue;
   }
+  public String getName(){
+    return name;
+  }
 
   public short getRawValue() {
     // last written value is at end-1
