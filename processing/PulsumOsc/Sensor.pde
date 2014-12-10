@@ -1,8 +1,8 @@
 import oscP5.*;
 import netP5.*;
 
-static NetAddress oscOutAddress;
-static OscMessage mMessage;
+private static NetAddress oscOutAddress;
+private static OscMessage mMessage;
 
 public class Sensor {
   private static final short AVGSIZE = 20;
