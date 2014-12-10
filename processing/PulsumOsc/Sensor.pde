@@ -1,8 +1,18 @@
+import oscP5.*;
+import netP5.*;
+
+static NetAddress oscOutAddress;
+static OscMessage mMessage;
 
 public class Sensor {
   private static final short AVGSIZE = 20;
   private static final short DISPLAYSIZE = 300;
   private static final short RAWSIZE = 30000;
+
+  private final static int OSC_OUT_PERIOD = 100;
+  private final static int OSC_OUT_PORT = 8666;
+  private final static String OSC_OUT_HOST = "localhost";
+  private final static String OSC_OUT_PATTERN = "/pulsum-osc/";
 
   private short rawValues[] = new short[RAWSIZE+1];
   private short averageValues[] = new short[DISPLAYSIZE*2+1];
@@ -17,6 +27,9 @@ public class Sensor {
   private PVector location, dimension;
 
   public Sensor(PVector _location, PVector _dimension, String _name) {
+    oscOutAddress = new NetAddress(OSC_OUT_HOST, OSC_OUT_PORT);
+    mMessage = new OscMessage(OSC_OUT_PATTERN);
+
     // set location/dimension of graphs and name of sensor
     location = _location;
     dimension = _dimension;
@@ -51,7 +64,7 @@ public class Sensor {
   public short getMax() {
     return maxValue;
   }
-  public String getName(){
+  public String getName() {
     return name;
   }
 
@@ -116,6 +129,34 @@ public class Sensor {
       minValue += (short)(0.01*thisMinValue);
       minValue = (thisMinValue<minValue)?thisMinValue:minValue;
     }
+  }
+
+  public void sendOsc() {
+    String mAddrPatt = OSC_OUT_PATTERN+getName()+"/";
+
+    // min
+    mMessage.clear();
+    mMessage.setAddrPattern(mAddrPatt+"min");
+    mMessage.add(getMin());
+    OscP5.flush(mMessage, oscOutAddress);
+
+    // max
+    mMessage.clear();
+    mMessage.setAddrPattern(mAddrPatt+"max");
+    mMessage.add(getMax());
+    OscP5.flush(mMessage, oscOutAddress);
+
+    // filtered
+    mMessage.clear();
+    mMessage.setAddrPattern(mAddrPatt+"filtrado");
+    mMessage.add(getAverageValueNormalized());
+    OscP5.flush(mMessage, oscOutAddress);
+
+    // raw
+    mMessage.clear();
+    mMessage.setAddrPattern(mAddrPatt+"crudo");
+    mMessage.add(getRawValue());
+    OscP5.flush(mMessage, oscOutAddress);
   }
 
   public void draw() {
