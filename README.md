@@ -40,8 +40,8 @@ List of components for the circuit:
 
 #Software
 
-[Download the compile version of PulsumOSC here](http://lessnullvoid.cc/download/PulsumOscDebug.zip)
-[Compile PulsumOSC find the code here](https://github.com/Lessnullvoid/Pulsum-Plantae/tree/master/PulsumOsc)
+- [Download a zip file with the compile version of PulsumOSC here:](http://lessnullvoid.cc/download/PulsumOscDebug.zip)
+- [Compile your own PulsumOSC, fing the code here:](https://github.com/Lessnullvoid/Pulsum-Plantae/tree/master/PulsumOsc)
 
 After preparing the circuit and pluged to the arduino board, you are ready to test the system using the software we provided here. We have a tool called PulsumOSC is a OpenFrameWorks program that runs on Mac 0SX 10.7, 10.8, 10.9, 10.10. To run the software you need to select your serial port on the serial list.
 
