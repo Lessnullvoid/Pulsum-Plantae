@@ -43,7 +43,7 @@ We have a tool call PulsumOSC is a OpenFrameWorks program that runs on Mac 0SX 1
 
 ![PulsumOsc](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/OSCsoftware.png?raw=true)
 
-After runing the software is going to start serving OSC values in the following arrangement: 
+After runing the software starts serving OSC values in the following arrangement: 
 
  ```
 OSC0/filtrado OSC0/crudo OSC0/min OSC0/max
@@ -62,7 +62,7 @@ This values are processed in the sensor.h as it:
 	const unsigned short getAverageValue() const;
 	const unsigned short getAverageValueNormalized() const;
  ```
- Then your ar good to run the puredata part in the system:
+ Then your ar good to run the puredata part in the system. This specific patch is a granular synth. Is importat to preload a sound sample on every module. 
  ![pd granular](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/pdgranular.jpg?raw=true)
 
 #Some notes on electrodes
