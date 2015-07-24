@@ -8,9 +8,9 @@ The LM324N is the core of the circuit, consists of four independent, high-gain, 
 
 ![Gerber file](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/esquematicos/gerber.png?raw=true)
 
-- fritzing file here: https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/pcb/GalvanicoLM324Final.fzz
-- the pdf etchable file here: https://github.com/Lessnullvoid/Pulsum-Plantae/tree/master/pcb/pdfLM324Final
-- gerber files here: https://github.com/Lessnullvoid/Pulsum-Plantae/tree/master/pcb/GalvanicoLM324_Gerber_Final
+- [Download Fritzing file here:](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/pcb/GalvanicoLM324Final.fzz)
+- [Download the pdf etchable file here:](https://github.com/Lessnullvoid/Pulsum-Plantae/tree/master/pcb/pdfLM324Final)
+- [Download the gerber file here:](https://github.com/Lessnullvoid/Pulsum-Plantae/tree/master/pcb/GalvanicoLM324_Gerber_Final)
 
 List of components for the circuit:
 - 1 LM324N
@@ -29,7 +29,7 @@ List of components for the circuit:
 
 #Instalation 
 
-- 1 Load the pulsumSensorRead software in your arduino [check the code here](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/arduino/pulsumSensorRead/pulsumSensorRead.ino)
+- 1 Load the pulsumSensorRead software in your arduino [find the code here.](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/arduino/pulsumSensorRead/pulsumSensorRead.ino)
 - 2 conect your circuit to the arduino power 3.3 v
 - 3 plug the output pin from the pulsum circuit to your analog input in arduino
 - 4 plug your electrodes to the terminal electrodes pin in your pulsum circuit
