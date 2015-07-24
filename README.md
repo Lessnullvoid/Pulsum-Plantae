@@ -43,6 +43,22 @@ We have a tool call PulsumOSC is a OpenFrameWorks program that runs on Mac 0SX 1
 
 ![PulsumOsc](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/OSCsoftware.png?raw=true)
 
+After runing the software is going to start serving OSC values in the following arrangement: 
+
+OSC0/filtrado OSC0/crudo OSC0/min OSC0/max
+OSC1/filtrado OSC1/crudo OSC1/min OSC1/max
+OSC2/filtrado OSC2/crudo OSC2/min OSC2/max
+OSC3/filtrado OSC3/crudo OSC3/min OSC3/max
+OSC4/filtrado OSC4/crudo OSC4/min OSC4/max
+
+This values are processed in the sensor.h as it:
+ (```)
+  const unsigned short getMin() const;
+	const unsigned short getMax() const;
+	const unsigned short getRawValue() const;
+	const unsigned short getAverageValue() const;
+	const unsigned short getAverageValueNormalized() const;
+ (```)
 
 
 #Some notes on electrodes
