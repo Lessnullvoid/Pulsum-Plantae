@@ -40,7 +40,7 @@ List of components for the circuit:
 
 #Some notes on electrodes
 
-Here is tree diferent types of electrodes to plug your plants, this depends on the physiological fetures of your plant.
+Here is tree diferent types of electrodes to plug your plants, this depends on the physiological fetures of the plant you are intending to connect. For best results i will recomend to test the tree options and check the results with the monitor software.
 
 - The gel electrodes are specially good for long leaves, i specially recomend the circular one use for facial treatment. They are small and reusable, so you can clean after using, just with a little of wather: ![Gel electrodes for long leaves](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/gelelectrodes.jpg?raw=true)
 
