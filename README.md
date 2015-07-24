@@ -64,7 +64,10 @@ This values are processed in the sensor.h as it:
 	const unsigned short getAverageValue() const;
 	const unsigned short getAverageValueNormalized() const;
  ```
- Then your ar good to run the puredata part in the system. This specific patch is a granular synth. Is importat to preload a sound sample on every module. By default the outputs are setup in a quadraphonic arrangement, so every module send to ~DAC1 ~DAC2 ~DAC3 and so on. You can controll this on the output panel. 
+ **Note for linux an windows users**
+ There is also a processing version of this software to perform the same transmision of data in OSC you can check the [code here](https://github.com/Lessnullvoid/Pulsum-Plantae/tree/master/processing/PulsumOsc)
+ 
+After runing any of this softwares your ar good to run the puredata part in the system. This specific patch is a granular synth. Is importat to preload a sound sample on every module. By default the outputs are setup in a quadraphonic arrangement, so every module send to ~DAC1 ~DAC2 ~DAC3 and so on. You can controll this on the output panel. 
  ![pd granular](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/pdgranular.jpg?raw=true)
 
 #Some notes on electrodes
