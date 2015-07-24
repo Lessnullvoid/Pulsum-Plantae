@@ -29,6 +29,9 @@ List of components for the circuit:
 
 #Instalation 
 
+**Prepare your arduino and circuits**
+
+
 - 1 Load the pulsumSensorRead software in your arduino [find the code here.](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/arduino/pulsumSensorRead/pulsumSensorRead.ino)
 - 2 conect your circuit power terminal to the arduino power 3.3V.
 - 3 plug the output pin from the pulsum circuit to your analog input in arduino.
@@ -38,11 +41,17 @@ List of components for the circuit:
 **Some notes on electrodes**
 
 Here is tree diferent types of electrodes to plug your plants, this depends on the physiological fetures of your plant.
+
 The gel electrodes are specially good for long leaves:
 ![Gel electrodes for long leaves](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/gelelectrodes.jpg?raw=true)
 
 The petridish system uses alumiun tape place in a T form. This type of electrodes work with moses or algea. 
 ![Petridish](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/petridish.jpg?raw=true)
+
+The acupunture needles are specially good for cactacea or suculente type of plants
+![Needles](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/needless.jpg?raw=true)
+
+
 
 
 
