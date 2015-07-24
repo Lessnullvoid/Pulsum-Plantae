@@ -1,5 +1,5 @@
 # Pulsum-Plantae
-This repository contains all the parts necesery to make pulsum plantae system run. It contains some hardware parts consistend of a operation amplifier circuit. the software contains varius moduls from data receivers to sound interpreters. 
+This repository contains all the parts necesery to make pulsum plantae system run. It contains some hardware parts and software with various moduls from data receivers to sound interpreters. 
 
 #Hardware
 ![Operation Amplifier](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/esquematicos/lm324n.png?raw=true)
@@ -20,8 +20,18 @@ List of components for the circuit:
 - 1 100K trimpot
 - 1 1M trimpot
 - 2 terminals
+- 2 gel electrodes
+- 2 acupunture needles
+- 1 jumper wire
 
 
 #Software 
 
-#Instalación 
+#Instalation 
+
+- 1 Load the pulsumSensorRead software in your arduino
+- 2 conect your circuit to the arduino power 3.3 v
+- 3 plug the output pin from the pulsum circuit to your analog input in arduino
+- 4 plug your electrodes to the terminal electrodes pin in your pulsum circuit
+
+
