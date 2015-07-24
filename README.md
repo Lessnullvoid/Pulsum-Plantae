@@ -40,12 +40,11 @@ List of components for the circuit:
 
 #Software
 
-After prepare the circuit and pluged to the arduino board, you are ready to test the system using the software we provided here.
-We have a tool call PulsumOSC is a OpenFrameWorks program that runs on Mac 0SX 10.7, 10.8, 10.9, 10.10. To run the software you need to select your serial port on the serial list.
+After preparing the circuit and pluged to the arduino board, you are ready to test the system using the software we provided here. We have a tool called PulsumOSC is a OpenFrameWorks program that runs on Mac 0SX 10.7, 10.8, 10.9, 10.10. To run the software you need to select your serial port on the serial list.
 
 ![PulsumOsc](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/OSCsoftware.png?raw=true)
 
-After runing the software starts serving OSC values in the following arrangement: 
+After runing, the software starts serving OSC values in the following arrangement: 
 
  ```
 OSC0/filtrado OSC0/crudo OSC0/min OSC0/max
@@ -54,11 +53,11 @@ OSC2/filtrado OSC2/crudo OSC2/min OSC2/max
 OSC3/filtrado OSC3/crudo OSC3/min OSC3/max
 OSC4/filtrado OSC4/crudo OSC4/min OSC4/max
 ```
+The number after the OSC indicates the analog input where you pluged the sensor.
 
-This values are processed in the sensor.h as it:
-
+This values are processed in the sensor.h file as fallows:
  ```
-  const unsigned short getMin() const;
+        const unsigned short getMin() const;
 	const unsigned short getMax() const;
 	const unsigned short getRawValue() const;
 	const unsigned short getAverageValue() const;
@@ -79,7 +78,7 @@ This is a first version of the software for sonification. Both versions are avai
 
 #Some notes on electrodes
 
-Here is tree diferent types of electrodes to plug your plants, this depends on the physiological fetures of the plant you are intending to connect. For best results i will recomend to test the tree options and check the results with the monitor software.
+Here is tree diferent types of electrodes to plug your plants, this depends on the physiological features of the plant you are attempting to connect. For best results i will recomend to test the tree options and check the results with the monitor software.
 
 - The gel electrodes are specially good for long leaves, i specially recomend the circular one use for facial treatment. They are small and reusable, so you can clean after using, just with a little of wather: ![Gel electrodes for long leaves](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/gelelectrodes.jpg?raw=true)
 
