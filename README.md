@@ -7,6 +7,9 @@ This is the LM324N consists of four independent, high-gain, internally frequency
 designed specifically to operate from a single power supply over a wide range of voltages. for more information read the datashet: http://pdf.datasheetcatalog.com/datasheet/philips/LM324N.pdf
 
 ![Gerber file](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/esquematicos/gerber.png?raw=true)
+download the fritzing file here: https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/pcb/GalvanicoLM324Final.fzz
+download the pdf etchable file here: https://github.com/Lessnullvoid/Pulsum-Plantae/tree/master/pcb/pdfLM324Final
+dowbload gerber files here: https://github.com/Lessnullvoid/Pulsum-Plantae/tree/master/pcb/GalvanicoLM324_Gerber_Final
 
 List of components for the circuit:
 - 1 LM324N
