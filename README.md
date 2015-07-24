@@ -27,7 +27,7 @@ List of components for the circuit:
 
 #Software 
 
-#Instalation 
+#Installation 
 
 **Prepare your arduino and circuits**
 
