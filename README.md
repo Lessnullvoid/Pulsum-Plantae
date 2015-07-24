@@ -30,8 +30,13 @@ List of components for the circuit:
 #Instalation 
 
 - 1 Load the pulsumSensorRead software in your arduino [find the code here.](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/arduino/pulsumSensorRead/pulsumSensorRead.ino)
-- 2 conect your circuit to the arduino power 3.3 v
-- 3 plug the output pin from the pulsum circuit to your analog input in arduino
-- 4 plug your electrodes to the terminal electrodes pin in your pulsum circuit
+- 2 conect your circuit power terminal to the arduino power 3.3V.
+- 3 plug the output pin from the pulsum circuit to your analog input in arduino.
+- 4 plug your electrodes to the terminal electrodes pin in your pulsum circuit.
+- 5 Conect the electrodes to your plant 
+
+**Some notes on electrodes**
+Here is tree diferent types of electrodes to plug your plants, this depends on the physiological fetures of your plant
+![Gel electrodes for long leaves](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/gelelectrodes.jpg?raw=true)
 
 
