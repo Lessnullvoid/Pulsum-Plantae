@@ -62,7 +62,8 @@ This values are processed in the sensor.h as it:
 	const unsigned short getAverageValue() const;
 	const unsigned short getAverageValueNormalized() const;
  ```
-
+ Then your ar good to run the puredata part in the system:
+ ![pd granular](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/pdgranular.jpg?raw=true)
 
 #Some notes on electrodes
 
