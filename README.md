@@ -36,7 +36,9 @@ List of components for the circuit:
 - 5 Conect the electrodes to your plant 
 
 **Some notes on electrodes**
-Here is tree diferent types of electrodes to plug your plants, this depends on the physiological fetures of your plant
+
+Here is tree diferent types of electrodes to plug your plants, this depends on the physiological fetures of your plant.
+The gel electrodes are specially good for long leaves:
 ![Gel electrodes for long leaves](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/gelelectrodes.jpg?raw=true)
 
 
