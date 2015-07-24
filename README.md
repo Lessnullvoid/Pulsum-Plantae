@@ -25,8 +25,6 @@ List of components for the circuit:
 - 1 jumper wire
 
 
-#Software 
-
 #Installation 
 
 **Prepare your arduino and circuits**
@@ -37,6 +35,15 @@ List of components for the circuit:
 - 3 plug the output pin from the pulsum circuit to your analog input in arduino.
 - 4 plug your electrodes to the terminal electrodes pin in your pulsum circuit.
 - 5 Conect the electrodes to your plant 
+
+#Software
+
+After prepare the circuit and pluged to the arduino board, you are ready to test the system using the software we provided here.
+We have a tool call PulsumOSC is a OpenFrameWorks program that runs on Mac 0SX 10.7, 10.8, 10.9, 10.10. To run the software you need to select your serial port on the serial list.
+
+![PulsumOsc](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/OSCsoftware.png?raw=true)
+
+
 
 #Some notes on electrodes
 
