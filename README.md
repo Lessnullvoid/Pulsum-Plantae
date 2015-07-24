@@ -41,8 +41,8 @@ Here is tree diferent types of electrodes to plug your plants, this depends on t
 The gel electrodes are specially good for long leaves:
 ![Gel electrodes for long leaves](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/gelelectrodes.jpg?raw=true)
 
-The petri dish system uses alumiun tape, the tape is place in a T form. This type of electrodes work with moses or algea. 
-![Petri dish](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/petridish.jpg?raw=true)
+The petridish system uses alumiun tape place in a T form. This type of electrodes work with moses or algea. 
+[Petridish](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/petridish.jpg?raw=true)
 
 
 
