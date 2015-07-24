@@ -38,7 +38,7 @@ List of components for the circuit:
 - 4 plug your electrodes to the terminal electrodes pin in your pulsum circuit.
 - 5 Conect the electrodes to your plant 
 
-**Some notes on electrodes**
+#Some notes on electrodes
 
 Here is tree diferent types of electrodes to plug your plants, this depends on the physiological fetures of your plant.
 
