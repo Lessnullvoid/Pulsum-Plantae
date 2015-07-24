@@ -37,7 +37,7 @@ The LM324N is the core of the circuit, consists of four independent, high-gain, 
 - 3 connect your circuit power terminal to the arduino power 3.3V.
 - 4 plug the output pin from the pulsum circuit to your analog input in arduino.
 - 5 plug your electrodes to the terminal electrodes pin in your pulsum circuit.
-- 6 connect the electrodes to your plant 
+- 6 connect the electrodes to your plant.
 
 #Software
 
