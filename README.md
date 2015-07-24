@@ -57,11 +57,11 @@ The number after the OSC indicates the analog input where you pluged the sensor.
 
 This values are processed in the sensor.h file as fallows:
  ```
-        const unsigned short getMin() const;
-	const unsigned short getMax() const;
-	const unsigned short getRawValue() const;
-	const unsigned short getAverageValue() const;
-	const unsigned short getAverageValueNormalized() const;
+const unsigned short getMin() const;
+const unsigned short getMax() const;
+const unsigned short getRawValue() const;
+const unsigned short getAverageValue() const;
+const unsigned short getAverageValueNormalized() const;
  ```
  **Note for linux an windows users**
  
@@ -78,11 +78,11 @@ This is a first version of the software for sonification. Both versions are avai
 
 #Some notes on electrodes
 
-Here is tree diferent types of electrodes to plug your plants, this depends on the physiological features of the plant you are attempting to connect. For best results i will recomend to test the tree options and check the results with the monitor software.
+Here is tree diferent types of electrodes to plug your plants, this depends on the physiological features of the plant you are attempting to connect. For best results we recomend to test the tree options and check the results with the monitor software.
 
-- The gel electrodes are specially good for long leaves, i specially recomend the circular one use for facial treatment. They are small and reusable, so you can clean after using, just with a little of wather: ![Gel electrodes for long leaves](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/gelelectrodes.jpg?raw=true)
+- The gel electrodes are specially good for long leaves, the best are the circular ones use for facial treatment. They are small and reusable, so you can clean after using, just with a little of wather: ![Gel electrodes for long leaves](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/gelelectrodes.jpg?raw=true)
 
-- The petridish system uses alumiun tape place in a T form. This type of electrodes work with moses or algea or other type of small plants. You can also work with cooper tape, but is important to consider the process of corrosion is faster on cooper than aluminion. And this could poison your plants. ![Petridish](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/petridish.jpg?raw=true)
+- The petri dish system uses alumiun tape place in a Y form. This type of electrodes work with moses or algea or other type of small plants. You can also work with cooper tape, but is important to consider the process of corrosion is faster on cooper than aluminion. And this could poison your plants. ![Petridish](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/petridish.jpg?raw=true)
 
 - The acupunture needles are specially good for cactacea or suculente type of plants, they are made out stainless steal, that means you can leave the needles inside the cactus for long time with no problems. ![Needles](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/needless.jpg?raw=true)
 
