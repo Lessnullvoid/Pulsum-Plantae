@@ -9,13 +9,13 @@ designed specifically to operate from a single power supply over a wide range of
 ![Gerber file](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/esquematicos/gerber.png?raw=true)
 
 List of components for the circuit:
-1 -LM324N
-3 -100K resistors
-3 -10K resistors
-1 -1M resistor
-1 -100K trimpot
-1 -1M trimpot
-2 -terminals
+- 1 LM324N
+- 3 100K resistors
+- 3 10K resistors
+- 1 1M resistor
+- 1 100K trimpot
+- 1 1M trimpot
+- 2 terminals
 
 
 #Software 
