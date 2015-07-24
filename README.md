@@ -1,5 +1,5 @@
 # Pulsum-Plantae
-Pulsum Plantae is a project focused on the reading of bioelectric activity of different types of plants. Use these perceptual skills as biosensors, amplifying the signals to be sent to a microncontrolador and to work with them in a process of experimental sonification. This repository contains all the parts necesery to make pulsum plantae system run. 
+Pulsum Plantae is a project focused on bioelectrical activity readings from different types of plants. Using their perceptual skills as biosensors, amplifying the signals to be sent to a microncontrolador and to work with them in a process of experimental sonification. This repository contains all the parts necesery to make pulsum plantae system run. Check our website for other examples http://lessnullvoid.cc/pulsum send us and email at info@interspecifics.cc 
 
 Leslie Garcia, Thiago Hersan, Paloma López and many other collaborators. 
 
