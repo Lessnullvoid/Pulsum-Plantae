@@ -42,17 +42,11 @@ List of components for the circuit:
 
 Here is tree diferent types of electrodes to plug your plants, this depends on the physiological fetures of your plant.
 
-- The gel electrodes are specially good for long leaves, i specially recomend the circular one use for facial treatment. They are small and reusable, so you can clean after using, just with a little of wather:
+- The gel electrodes are specially good for long leaves, i specially recomend the circular one use for facial treatment. They are small and reusable, so you can clean after using, just with a little of wather: ![Gel electrodes for long leaves](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/gelelectrodes.jpg?raw=true)
 
-![Gel electrodes for long leaves](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/gelelectrodes.jpg?raw=true)
+- The petridish system uses alumiun tape place in a T form. This type of electrodes work with moses or algea or other type of small plants. You can also work with cooper tape, but is important to consider the process of corrosion is faster on cooper than aluminion. And this could poison your plants. ![Petridish](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/petridish.jpg?raw=true)
 
-- The petridish system uses alumiun tape place in a T form. This type of electrodes work with moses or algea or other type of small plants. You can also work with cooper tape, but is important to consider the process of corrosion is faster on cooper than aluminion. And this could poison your plants. 
-
-![Petridish](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/petridish.jpg?raw=true)
-
-- The acupunture needles are specially good for cactacea or suculente type of plants, they are made out stainless steal, that means you can leave the needles inside the cactus for long time with no problems. 
-
-![Needles](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/needless.jpg?raw=true)
+- The acupunture needles are specially good for cactacea or suculente type of plants, they are made out stainless steal, that means you can leave the needles inside the cactus for long time with no problems. ![Needles](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/needless.jpg?raw=true)
 
 
 
