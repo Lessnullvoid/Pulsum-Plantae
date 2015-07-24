@@ -40,6 +40,9 @@ List of components for the circuit:
 
 #Software
 
+[Download the compile version of PulsumOSC here](http://lessnullvoid.cc/download/PulsumOscDebug.zip)
+[Compile PulsumOSC find the code here](https://github.com/Lessnullvoid/Pulsum-Plantae/tree/master/PulsumOsc)
+
 After preparing the circuit and pluged to the arduino board, you are ready to test the system using the software we provided here. We have a tool called PulsumOSC is a OpenFrameWorks program that runs on Mac 0SX 10.7, 10.8, 10.9, 10.10. To run the software you need to select your serial port on the serial list.
 
 ![PulsumOsc](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/OSCsoftware.png?raw=true)
@@ -47,11 +50,11 @@ After preparing the circuit and pluged to the arduino board, you are ready to te
 After runing, the software starts serving OSC values in the following arrangement: 
 
  ```
-OSC0/filtrado OSC0/crudo OSC0/min OSC0/max
-OSC1/filtrado OSC1/crudo OSC1/min OSC1/max
-OSC2/filtrado OSC2/crudo OSC2/min OSC2/max
-OSC3/filtrado OSC3/crudo OSC3/min OSC3/max
-OSC4/filtrado OSC4/crudo OSC4/min OSC4/max
+OSC0/filtrado/data OSC0/crudo/data OSC0/min/data OSC0/max/data
+OSC1/filtrado/data OSC1/crudo/data OSC1/min/data OSC1/max/data
+OSC2/filtrado/data OSC2/crudo/data OSC2/min/data OSC2/max/data
+OSC3/filtrado/data OSC3/crudo/data OSC3/min/data OSC3/max/data
+OSC4/filtrado/data OSC4/crudo/data OSC4/min/data OSC4/max/data
 ```
 The number after the OSC indicates the analog input where you pluged the sensor.
 
