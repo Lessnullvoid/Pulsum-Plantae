@@ -1,6 +1,8 @@
 # Pulsum-Plantae
 Pulsum Plantae is a project focused on the reading of bioelectric activity of different types of plants. Use these perceptual skills as biosensors, amplifying the signals to be sent to a microncontrolador and to work with them in a process of experimental sonification. This repository contains all the parts necesery to make pulsum plantae system run. 
 
+Leslie Garcia, Thiago Hearsan, Paloma López and many other collaborators. 
+
 #Hardware
 The LM324N is the core of the circuit, consists of four independent, high-gain, internally frequency-compensated operational amplifiers designed specifically to operate from a single power supply over a wide range of voltages. for more information read the datashet: http://pdf.datasheetcatalog.com/datasheet/philips/LM324N.pdf
 ![Operation Amplifier](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/esquematicos/lm324n.png?raw=true)
