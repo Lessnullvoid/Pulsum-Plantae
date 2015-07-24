@@ -13,7 +13,7 @@ The LM324N is the core of the circuit, consists of four independent, high-gain, 
 - [Download Fritzing file here:](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/pcb/GalvanicoLM324Final.fzz)
 - [Download the pdf etchable file here:](https://github.com/Lessnullvoid/Pulsum-Plantae/tree/master/pcb/pdfLM324Final)
 - [Download the gerber file here:](https://github.com/Lessnullvoid/Pulsum-Plantae/tree/master/pcb/GalvanicoLM324_Gerber_Final)
-- [We have some circuits to sell just send us and emial](info@interspecifics.cc)
+- [We have some circuits available to sell, just send us an email](info@interspecifics.cc)
 
 **List of components for the circuit:**
 - 1 LM324N
