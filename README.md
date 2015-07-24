@@ -42,7 +42,7 @@ The gel electrodes are specially good for long leaves:
 ![Gel electrodes for long leaves](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/gelelectrodes.jpg?raw=true)
 
 The petridish system uses alumiun tape place in a T form. This type of electrodes work with moses or algea. 
-[Petridish](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/petridish.jpg?raw=true)
+![Petridish](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/petridish.jpg?raw=true)
 
 
 
