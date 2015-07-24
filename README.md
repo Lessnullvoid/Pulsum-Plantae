@@ -72,7 +72,8 @@ There is also a processing version of this software to perform the same transmis
 
 After runing any of this softwares your ar good to run the puredata part in the system. This specific patch is a granular synth. Is importat to preload a sound sample on every module. By default the outputs are setup in a quadraphonic arrangement, so every module send to ~DAC1 ~DAC2 ~DAC3 and so on. You can controll this on the output panel. 
  ![pd granular](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/pdgranular.jpg?raw=true)
- 
+
+This is a first version of the software for sonification. Both versions are available. 
  ![pd plantSynth](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/pulsumv2.jpg?raw=true)
 
 
