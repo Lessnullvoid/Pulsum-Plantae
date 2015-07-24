@@ -62,7 +62,7 @@ This values are processed in the sensor.h as it:
 	const unsigned short getAverageValue() const;
 	const unsigned short getAverageValueNormalized() const;
  ```
- Then your ar good to run the puredata part in the system. This specific patch is a granular synth. Is importat to preload a sound sample on every module. 
+ Then your ar good to run the puredata part in the system. This specific patch is a granular synth. Is importat to preload a sound sample on every module. By default the outputs are setup in a quadraphonic arrangement, so every module send to ~DAC1 ~DAC2 ~DAC3 and so on. You can controll this on the output panel. 
  ![pd granular](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/pdgranular.jpg?raw=true)
 
 #Some notes on electrodes
