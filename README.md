@@ -31,12 +31,12 @@ List of components for the circuit:
 
 **Prepare your arduino and circuits**
 
-
-- 1 Load the pulsumSensorRead software in your arduino [find the code here.](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/arduino/pulsumSensorRead/pulsumSensorRead.ino)
-- 2 conect your circuit power terminal to the arduino power 3.3V.
-- 3 plug the output pin from the pulsum circuit to your analog input in arduino.
-- 4 plug your electrodes to the terminal electrodes pin in your pulsum circuit.
-- 5 Conect the electrodes to your plant 
+- 1 Download the Pulsum-Plante master to your computer.
+- 2 Load the pulsumSensorRead software in your arduino [find the code here.](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/arduino/pulsumSensorRead/pulsumSensorRead.ino)
+- 3 conect your circuit power terminal to the arduino power 3.3V.
+- 4 plug the output pin from the pulsum circuit to your analog input in arduino.
+- 5 plug your electrodes to the terminal electrodes pin in your pulsum circuit.
+- 6 Conect the electrodes to your plant 
 
 #Software
 
