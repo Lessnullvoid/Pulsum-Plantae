@@ -8,9 +8,9 @@ designed specifically to operate from a single power supply over a wide range of
 
 ![Gerber file](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/esquematicos/gerber.png?raw=true)
 
-fritzing file here: https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/pcb/GalvanicoLM324Final.fzz
-the pdf etchable file here: https://github.com/Lessnullvoid/Pulsum-Plantae/tree/master/pcb/pdfLM324Final
-gerber files here: https://github.com/Lessnullvoid/Pulsum-Plantae/tree/master/pcb/GalvanicoLM324_Gerber_Final
+- fritzing file here: https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/pcb/GalvanicoLM324Final.fzz
+- the pdf etchable file here: https://github.com/Lessnullvoid/Pulsum-Plantae/tree/master/pcb/pdfLM324Final
+- gerber files here: https://github.com/Lessnullvoid/Pulsum-Plantae/tree/master/pcb/GalvanicoLM324_Gerber_Final
 
 List of components for the circuit:
 - 1 LM324N
