@@ -75,6 +75,13 @@ There is also a processing version of this software to perform the same transmis
 
 After running any of this software's your ar good to run the puredata part in the system. This specific patch is a granular synth. Is important to preload a sound sample on every module. By default the outputs are setup in a quadraphonic arrangement, so every module send to ~DAC1 ~DAC2 ~DAC3 and so on. You can control this on the output panel. 
  ![pd granular](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/pdgranular.jpg?raw=true)
+ 
+ **Start the patch**
+ - Load a grain of sound 0.1 milisecond on loadpanel for every channel
+ - High the volume on the output~ box 
+ - Ajust the OSC data receiver on the routeOSC part to match your prefered arrangment 
+ - The OSC data es controlling 3 parameters for every granular synth, frequency, amplitud, position.
+ - Listen to your plants playing granular synths :)
 
 This is a first version of the software for sonification. Both versions are available. 
  ![pd plantSynth](https://github.com/Lessnullvoid/Pulsum-Plantae/blob/master/img/pulsumv2.jpg?raw=true)
